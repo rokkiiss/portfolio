@@ -1,261 +1,278 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const skills = {
-  "Technical Stack": [
-    "Microsoft Entra ID, Intune & Autopilot",
-    "Microsoft 365 (Exchange, SharePoint, Teams)",
-    "Azure AD, Active Directory & Domain Controllers",
-    "Hyper-V & VMware Virtualization",
-    "Meraki Networks & SonicWall Firewall",
-    "PowerShell & Bash Automation",
-  ],
-  "Operations & Leadership": [
-    "IT Service Management (ITIL)",
-    "SLA Management & Performance Metrics",
-    "Service Delivery Optimization",
-    "Vendor & Contract Management",
-    "Helpdesk & Support Team Leadership",
-    "Budget Planning & Technology Roadmap",
-  ],
-  "Strategy & Business": [
-    "Risk Mitigation & Security Compliance",
-    "Project Management (Scope to Go-Live)",
-    "Client Relationship Management",
-    "Root Cause Analysis",
-    "Process Improvement & Automation",
-    "Team Mentorship & Development",
-  ],
-};
-
-const timeline = [
+const chapters = [
   {
-    role: "Operations Manager",
-    company: "Jaydien Network Solutions",
-    period: "June 2024 — Present",
-    location: "Brick, NJ",
+    num: "01",
+    role: "PC Warehouse",
+    title: "Where It Started",
+    period: "Early Career",
+    location: "NJ",
+    color: "#38bdf8",
+    summary: "First exposure to technology — hardware, troubleshooting, and the realization that IT was the path.",
     highlights: [
-      "Grew technician utilization from 20% to 70% by reworking workflows and introducing automation — scaling delivery without adding headcount",
-      "Own day-to-day IT operations across a managed services environment serving clients in regulated industries",
-      "Manage Microsoft Entra ID, Intune, Autopilot, and the full M365 suite (Exchange, SharePoint, OneDrive, Teams)",
-      "Lead technology projects from scoping through go-live, coordinating vendors and keeping leadership informed",
-      "Manage vendor relationships for infrastructure, security tools, and licensing — ran platform evaluations and migrations that improved security posture without budget overruns",
+      "First hands-on experience with computer hardware and repair",
+      "Discovered a passion for problem-solving through technology",
+      "Built foundational knowledge that everything else would grow from",
     ],
   },
   {
-    role: "Service Delivery Manager",
-    company: "AFScott",
+    num: "02",
+    role: "Verizon Wireless",
+    title: "Learning the Business Side",
+    period: "Early Career",
+    location: "NJ",
+    color: "#f59e0b",
+    summary: "Learned how technology connects to business outcomes and customer experience at scale.",
+    highlights: [
+      "Developed client-facing communication and technical explanation skills",
+      "Gained exposure to enterprise-scale technology and operations",
+      "Understood how IT decisions directly impact business and customers",
+    ],
+  },
+  {
+    num: "03",
+    role: "Tech-Keys",
+    title: "Found My Meaning in IT",
+    period: "2016 — 2022",
+    location: "Howell, NJ",
+    color: "#6366f1",
+    summary: "The place where everything clicked. Grew from Level 1 technician all the way to HelpDesk Manager — and built the leadership skills that define the rest of the story.",
+    highlights: [
+      "Started as a Level 1 technician — learned from the ground up",
+      "Managed and configured Aruba, Dell, Cisco switches and SonicWall Firewalls",
+      "Deployed and maintained Hyper-V, VMware, and Azure cloud environments",
+      "Promoted to HelpDesk Manager — led a team of 10+ support engineers",
+      "Improved SLA response times by 50% for Tier 1 and 30% across all other tiers",
+      "Implemented ITIL practices that brought structure and accountability to the team",
+      "Built an educational program for interns and engineers to accelerate growth",
+    ],
+  },
+  {
+    num: "04",
+    role: "AFScott",
+    title: "Putting It All Into Practice",
     period: "2022 — 2024",
     location: "Bedminster, NJ",
+    color: "#a78bfa",
+    summary: "Took everything learned at Tech-Keys and applied it at scale. Drove transformational improvements across service delivery and team performance.",
     highlights: [
-      "Increased SLA compliance by 40% and overall productivity by 85% through strategic process improvements",
-      "Automated operational workflows using PowerShell and Bash, significantly reducing manual workloads",
+      "Increased SLA compliance by 40% through strategic process improvements",
+      "Drove overall team productivity up by 85%",
+      "Built automation using PowerShell and Bash that eliminated manual workloads",
       "Managed Azure AD, Active Directory, Hyper-V, VMware, and Citrix environments",
-      "Implemented Azure MFA, SSO, and Power Automate to enhance security and efficiency",
-      "Led and mentored service teams to hit key performance targets while maintaining strong client relationships",
+      "Deployed Azure MFA, SSO, and Power Automate to modernize security and workflows",
+      "Managed client relationships and escalations across a complex service delivery model",
     ],
   },
   {
-    role: "HelpDesk Manager",
-    company: "Tech-Keys",
-    period: "2021 — 2022",
-    location: "Howell, NJ",
+    num: "05",
+    role: "Jaydien Network Solutions",
+    title: "Zero to Hero — The Culmination",
+    period: "June 2024 — Present",
+    location: "Brick, NJ",
+    color: "#34d399",
+    summary: "This is where every lesson, every late night, every hard conversation, and every solved problem converged. The full stack — operations, leadership, strategy, and execution.",
     highlights: [
-      "Managed a team of 10+ support engineers, implementing ITIL practices for alignment and efficiency",
-      "Improved SLA response times by 50% for Tier 1 and 30% across other support tiers",
-      "Developed an educational program for interns and engineers to accelerate skill development",
-      "Led weekly goal-tracking meetings and drove continuous workflow improvement",
-    ],
-  },
-  {
-    role: "Systems Engineer",
-    company: "Tech-Keys",
-    period: "2016 — 2021",
-    location: "Howell, NJ",
-    highlights: [
-      "Managed and configured Aruba, Dell, and Cisco switches along with SonicWall Firewalls",
-      "Administered Azure AD, Active Directory, and Domain Controller environments",
-      "Deployed and maintained Hyper-V, VMware, and Azure cloud services including MFA and SSO",
-      "Leveraged PowerShell for automation and system management across the environment",
+      "Grew technician utilization from 20% to 70% through workflow redesign and automation",
+      "Own end-to-end IT operations for a managed services environment serving regulated industries",
+      "Manage the full Microsoft stack: Entra ID, Intune, Autopilot, M365, Exchange, SharePoint, Teams",
+      "Handle network infrastructure including Meraki environments and VPN across distributed offices",
+      "Lead technology projects from initial scoping through go-live",
+      "Mentor the technical team and drive operational metrics, budget planning, and technology roadmap",
+      "Deliver executive-level reporting on system health, risk, and investment priorities",
     ],
   },
 ];
+
+const skills = [
+  { label: "Microsoft 365 & Entra ID", level: 95 },
+  { label: "Azure AD & Cloud Services", level: 90 },
+  { label: "PowerShell & Bash Automation", level: 88 },
+  { label: "Network Infrastructure (Meraki, Cisco, SonicWall)", level: 85 },
+  { label: "ITIL & Service Management", level: 90 },
+  { label: "Hyper-V & VMware", level: 82 },
+  { label: "Vendor & Contract Management", level: 88 },
+  { label: "Team Leadership & Mentorship", level: 92 },
+];
 ---
 
-<Layout title="Roger Anderson — Director of IT" description="IT Operations & Service Delivery Leader — NY Metro Area">
-  <!-- ── NAV BAR ── -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <span class="font-semibold tracking-wide text-sm uppercase" style="color:#1a1a2e">Roger Anderson</span>
-      <div class="hidden sm:flex items-center gap-8 text-sm font-medium text-gray-500">
-        <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
-        <a href="#timeline" class="hover:text-gray-900 transition-colors">Career</a>
-        <a href="#skills" class="hover:text-gray-900 transition-colors">Skills</a>
-        <a
-          href="mailto:roger@yeaitis.com"
-          class="px-4 py-2 rounded text-white text-sm font-medium transition-opacity hover:opacity-90"
-          style="background:#1a1a2e"
-        >
-          Contact
+<Layout title="Roger Anderson — IT Leader" description="IT Operations & Service Delivery Leader, NY Metro Area">
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #30363d;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-weight:600;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;color:#e6edf3;">Roger Anderson</span>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <a href="#story" class="nav-link">Story</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener"
+           style="padding:0.5rem 1.25rem;border-radius:6px;background:#6366f1;color:white;font-size:0.85rem;font-weight:500;text-decoration:none;">
+          LinkedIn ↗
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
-  <section id="about" class="pt-16 min-h-screen flex flex-col justify-center" style="background:linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%)">
-    <div class="max-w-6xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Text -->
-      <div>
-        <p class="text-sm font-medium uppercase tracking-widest mb-4" style="color:#1a1a2e">Director of IT · NY Metro Area</p>
-        <h1 class="serif text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
-          Roger<br />Anderson
-        </h1>
-        <p class="text-lg text-gray-500 font-light mb-2 tracking-wide">IT Operations &nbsp;·&nbsp; Service Delivery &nbsp;·&nbsp; Cloud Infrastructure</p>
+  <!-- HERO -->
+  <section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 1.5rem 4rem;position:relative;overflow:hidden;">
+    <!-- Background glow -->
+    <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none;"></div>
 
-        <div class="w-12 h-0.5 my-8" style="background:#1a1a2e"></div>
+    <div style="max-width:1100px;margin:0 auto;width:100%;">
+      <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">Director of IT · NY Metro Area</p>
 
-        <p class="text-lg text-gray-700 leading-relaxed max-w-md">
-          IT operations leader with 10+ years of progressive experience building high-performing teams,
-          automating service delivery, and driving measurable outcomes — from hands-on infrastructure
-          to managing cross-functional teams across managed services environments.
-        </p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:1.05;margin-bottom:1.5rem;">
+        <span style="color:#e6edf3;">Roger</span><br/>
+        <span class="gradient-text">Anderson</span>
+      </h1>
 
-        <div class="mt-10 flex items-center gap-4 flex-wrap">
-          <a
-            href="#timeline"
-            class="px-6 py-3 rounded text-white text-sm font-medium transition-opacity hover:opacity-90"
-            style="background:#1a1a2e"
-          >
-            View Career History
-          </a>
-          <a
-            href="https://linkedin.com/in/rokis"
-            target="_blank"
-            rel="noopener"
-            class="px-6 py-3 rounded text-sm font-medium border border-gray-300 text-gray-700 hover:border-gray-400 transition-colors"
-          >
-            LinkedIn Profile ↗
-          </a>
-        </div>
-      </div>
+      <p style="font-size:1.25rem;color:#8b949e;font-weight:300;max-width:600px;line-height:1.7;margin-bottom:3rem;">
+        From fixing computers at a PC shop to running IT operations for a managed services firm —
+        this is a decade of growth, hard-won expertise, and building teams that deliver.
+      </p>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 gap-6">
+      <!-- Stats row -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;max-width:700px;margin-bottom:3.5rem;">
         {[
-          { stat: "10+", label: "Years of IT Leadership Experience" },
-          { stat: "85%", label: "Productivity Increase Driven at AFScott" },
-          { stat: "3.5×", label: "Technician Utilization Growth at Jaydien" },
-          { stat: "50%", label: "SLA Improvement Achieved Across Teams" },
+          { stat: "10+", label: "Years in IT" },
+          { stat: "85%", label: "Productivity lift at AFScott" },
+          { stat: "3.5×", label: "Utilization growth at Jaydien" },
+          { stat: "50%", label: "SLA improvement at Tech-Keys" },
         ].map(({ stat, label }) => (
-          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <p class="text-3xl font-bold mb-2" style="color:#1a1a2e; font-family:'Playfair Display',serif">{stat}</p>
-            <p class="text-sm text-gray-500 leading-snug">{label}</p>
+          <div class="card" style="padding:1.25rem;text-align:center;">
+            <div class="stat-number">{stat}</div>
+            <div style="color:#8b949e;font-size:0.75rem;margin-top:0.25rem;line-height:1.4;">{label}</div>
           </div>
         ))}
+      </div>
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="#story" style="padding:0.75rem 1.75rem;border-radius:8px;background:#6366f1;color:white;font-weight:500;text-decoration:none;font-size:0.95rem;">
+          Read the Story ↓
+        </a>
+        <a href="mailto:roger@yeaitis.com" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;font-size:0.95rem;">
+          Get in Touch
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ── CAREER TIMELINE ── -->
-  <section id="timeline" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="mb-16">
-        <p class="text-sm font-medium uppercase tracking-widest mb-3 text-gray-400">Professional History</p>
-        <h2 class="serif text-4xl font-bold text-gray-900">Career Timeline</h2>
+  <!-- STORY / TIMELINE -->
+  <section id="story" style="padding:6rem 1.5rem;">
+    <div style="max-width:1100px;margin:0 auto;">
+
+      <div style="margin-bottom:5rem;">
+        <div class="glow-line" style="margin-bottom:2rem;"></div>
+        <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;">The Journey</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#e6edf3;">
+          Every stop shaped<br/>what came next.
+        </h2>
       </div>
 
-      <div class="space-y-10">
-        {timeline.map((role) => (
-          <div class="group relative grid lg:grid-cols-[220px_1fr] gap-6 lg:gap-12 items-start">
-            <!-- Period -->
-            <div class="lg:text-right lg:pt-1">
-              <p class="text-sm font-semibold text-gray-900">{role.period}</p>
-              <p class="text-xs text-gray-400 mt-1">{role.location}</p>
-            </div>
+      <!-- Timeline -->
+      <div style="position:relative;">
+        <!-- Vertical line -->
+        <div style="position:absolute;left:5px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#6366f1,#30363d);"></div>
 
-            <!-- Content card -->
-            <div class="relative pl-6 border-l-2 border-gray-100">
-              <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gray-300"></div>
-              <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm group-hover:shadow-md transition-shadow">
-                <div class="mb-4">
-                  <h3 class="text-xl font-bold text-gray-900">{role.role}</h3>
-                  <p class="text-sm font-medium mt-0.5" style="color:#1a1a2e">{role.company}</p>
+        <div style="display:flex;flex-direction:column;gap:5rem;">
+          {chapters.map((ch) => (
+            <div style="display:grid;grid-template-columns:20px 1fr;gap:2rem;position:relative;">
+              <!-- Dot -->
+              <div style={`width:12px;height:12px;border-radius:50%;background:${ch.color};box-shadow:0 0 16px ${ch.color};flex-shrink:0;margin-top:0.4rem;`}></div>
+
+              <!-- Card -->
+              <div class="card" style="padding:2.5rem;position:relative;overflow:hidden;">
+                <!-- Big chapter number watermark -->
+                <div style="position:absolute;right:-0.5rem;top:-1rem;font-family:'Playfair Display',serif;font-size:8rem;font-weight:900;line-height:1;opacity:0.04;color:#ffffff;user-select:none;pointer-events:none;">
+                  {ch.num}
                 </div>
-                <ul class="space-y-2">
-                  {role.highlights.map((h) => (
-                    <li class="flex items-start gap-2 text-sm text-gray-600">
-                      <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#1a1a2e"></span>
+
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                  <div>
+                    <p style={`color:${ch.color};font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;`}>
+                      Chapter {ch.num} · {ch.period}
+                    </p>
+                    <h3 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#e6edf3;margin-bottom:0.25rem;">
+                      {ch.title}
+                    </h3>
+                    <p style="color:#8b949e;font-size:0.9rem;">{ch.role} · {ch.location}</p>
+                  </div>
+                </div>
+
+                <p style="color:#8b949e;font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;border-left:2px solid;padding-left:1rem;"
+                   style={`border-color:${ch.color};`}>
+                  {ch.summary}
+                </p>
+
+                <ul style="display:flex;flex-direction:column;gap:0.6rem;">
+                  {ch.highlights.map((h) => (
+                    <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:#c9d1d9;">
+                      <span style={`color:${ch.color};margin-top:0.35rem;flex-shrink:0;font-size:0.7rem;`}>▶</span>
                       {h}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="padding:6rem 1.5rem;background:#0a0d12;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="glow-line" style="margin-bottom:2rem;"></div>
+      <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;">Capabilities</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#e6edf3;margin-bottom:3rem;">
+        Skills & Expertise
+      </h2>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;max-width:800px;">
+        {skills.map(({ label, level }) => (
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+              <span style="font-size:0.9rem;color:#c9d1d9;">{label}</span>
+              <span style="font-size:0.85rem;color:#6366f1;font-weight:600;">{level}%</span>
+            </div>
+            <div style="height:4px;background:#21262d;border-radius:4px;overflow:hidden;">
+              <div style={`height:100%;width:${level}%;background:linear-gradient(to right,#6366f1,#38bdf8);border-radius:4px;`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Additional skills grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.75rem;margin-top:3rem;">
+        {["Leadership","Risk Mitigation","Security & Compliance","Vendor Management","Project Management","Client Relations","Performance Metrics","IT Automation","Meraki Networks","SonicWall","Citrix","Power Automate"].map((s) => (
+          <div style="padding:0.6rem 1rem;background:#161b22;border:1px solid #30363d;border-radius:6px;font-size:0.85rem;color:#8b949e;text-align:center;">
+            {s}
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ── SKILLS ── -->
-  <section id="skills" class="py-24" style="background:#f8fafc">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="mb-16">
-        <p class="text-sm font-medium uppercase tracking-widest mb-3 text-gray-400">Capabilities</p>
-        <h2 class="serif text-4xl font-bold text-gray-900">Skills &amp; Expertise</h2>
+  <!-- FOOTER / CONTACT -->
+  <footer style="padding:4rem 1.5rem;border-top:1px solid #30363d;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#e6edf3;">Let's Connect</h2>
+      <p style="color:#8b949e;max-width:400px;">Open to new opportunities, consulting conversations, or just a good IT chat.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+        <a href="mailto:roger@yeaitis.com" style="padding:0.75rem 1.75rem;border-radius:8px;background:#6366f1;color:white;font-weight:500;text-decoration:none;">
+          roger@yeaitis.com
+        </a>
+        <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;">
+          LinkedIn ↗
+        </a>
+        <a href="https://github.com/rokkiiss" target="_blank" rel="noopener" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;">
+          GitHub ↗
+        </a>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        {Object.entries(skills).map(([category, items]) => (
-          <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm">
-            <h3 class="font-semibold text-sm uppercase tracking-wider mb-6 pb-3 border-b border-gray-100" style="color:#1a1a2e">
-              {category}
-            </h3>
-            <ul class="space-y-3">
-              {items.map((skill) => (
-                <li class="flex items-center gap-2.5 text-sm text-gray-700">
-                  <svg class="w-3.5 h-3.5 flex-shrink-0 opacity-40" viewBox="0 0 24 24" fill="currentColor" style="color:#1a1a2e">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                  </svg>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <!-- Languages & Education strip -->
-      <div class="mt-12 grid sm:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-          <h3 class="font-semibold text-sm uppercase tracking-wider mb-4" style="color:#1a1a2e">Languages</h3>
-          <div class="flex gap-3">
-            {["English", "Portuguese", "Spanish"].map((lang) => (
-              <span class="px-3 py-1 rounded-full text-sm border border-gray-200 text-gray-600">{lang}</span>
-            ))}
-          </div>
-        </div>
-        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-          <h3 class="font-semibold text-sm uppercase tracking-wider mb-4" style="color:#1a1a2e">Education</h3>
-          <p class="text-sm text-gray-700 font-medium">B.S. Information Technology <span class="text-gray-400 font-normal">— In Progress</span></p>
-          <p class="text-xs text-gray-400 mt-0.5">Western Governors University</p>
-          <p class="text-sm text-gray-700 font-medium mt-3">IT &amp; Network Administration</p>
-          <p class="text-xs text-gray-400 mt-0.5">Brookdale Community College</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="py-12 border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-gray-400">Roger Anderson &mdash; Director of IT</p>
-      <div class="flex items-center gap-6 text-sm text-gray-400">
-        <a href="mailto:roger@yeaitis.com" class="hover:text-gray-700 transition-colors">roger@yeaitis.com</a>
-        <a href="https://linkedin.com/in/rokis" target="_blank" class="hover:text-gray-700 transition-colors">LinkedIn ↗</a>
-        <a href="https://github.com/rokkiiss" target="_blank" class="hover:text-gray-700 transition-colors">GitHub ↗</a>
-      </div>
+      <p style="color:#30363d;font-size:0.8rem;margin-top:1rem;">Roger Anderson · Director of IT · NY Metro Area</p>
     </div>
   </footer>
+
 </Layout>

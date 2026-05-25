@@ -4,7 +4,7 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title = "Roger Anderson — Executive IT Leader", description = "CTO · CIO · VP of IT" } = Astro.props;
+const { title = "Roger Anderson", description = "IT Operations & Service Delivery Leader" } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -12,20 +12,13 @@ const { title = "Roger Anderson — Executive IT Leader", description = "CTO · 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <title>{title}</title>
-    <style>
-      body { font-family: 'Inter', sans-serif; }
-      h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-    </style>
   </head>
-  <body class="bg-white text-gray-900 antialiased">
+  <body>
     <slot />
   </body>
 </html>
