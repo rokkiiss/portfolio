@@ -2,82 +2,97 @@
 import Layout from '../layouts/Layout.astro';
 
 const skills = {
-  "Technology Leadership": [
-    "Cloud Architecture (AWS, Azure)",
-    "Digital Transformation",
-    "Enterprise Architecture",
-    "Cybersecurity Strategy",
-    "IT Infrastructure & Operations",
-    "DevSecOps / Agile Delivery",
+  "Technical Stack": [
+    "Microsoft Entra ID, Intune & Autopilot",
+    "Microsoft 365 (Exchange, SharePoint, Teams)",
+    "Azure AD, Active Directory & Domain Controllers",
+    "Hyper-V & VMware Virtualization",
+    "Meraki Networks & SonicWall Firewall",
+    "PowerShell & Bash Automation",
   ],
-  "Business & Strategy": [
-    "IT Budget & P&L Management",
-    "Vendor & Contract Negotiation",
-    "M&A Technology Integration",
-    "Business Continuity Planning",
-    "Regulatory Compliance (SOC2, CMMC, HIPAA)",
-    "Board-Level Reporting",
+  "Operations & Leadership": [
+    "IT Service Management (ITIL)",
+    "SLA Management & Performance Metrics",
+    "Service Delivery Optimization",
+    "Vendor & Contract Management",
+    "Helpdesk & Support Team Leadership",
+    "Budget Planning & Technology Roadmap",
   ],
-  "People & Org": [
-    "Building & Scaling Engineering Teams",
-    "Cross-Functional Leadership",
-    "C-Suite Collaboration",
-    "Change Management",
-    "Mentorship & Talent Development",
-    "Stakeholder Communication",
+  "Strategy & Business": [
+    "Risk Mitigation & Security Compliance",
+    "Project Management (Scope to Go-Live)",
+    "Client Relationship Management",
+    "Root Cause Analysis",
+    "Process Improvement & Automation",
+    "Team Mentorship & Development",
   ],
 };
 
 const timeline = [
   {
-    role: "Chief Information Officer",
-    company: "Jaydien Inc.",
-    period: "2020 — Present",
-    location: "Remote / National",
+    role: "Operations Manager",
+    company: "Jaydien Network Solutions",
+    period: "June 2024 — Present",
+    location: "Brick, NJ",
     highlights: [
-      "Led enterprise-wide digital transformation reducing operational costs by 35%",
-      "Built and scaled a 40+ person IT organization from the ground up",
-      "Drove cloud migration strategy cutting infrastructure spend by $2.4M annually",
-      "Established cybersecurity framework achieving SOC 2 Type II certification",
+      "Grew technician utilization from 20% to 70% by reworking workflows and introducing automation — scaling delivery without adding headcount",
+      "Own day-to-day IT operations across a managed services environment serving clients in regulated industries",
+      "Manage Microsoft Entra ID, Intune, Autopilot, and the full M365 suite (Exchange, SharePoint, OneDrive, Teams)",
+      "Lead technology projects from scoping through go-live, coordinating vendors and keeping leadership informed",
+      "Manage vendor relationships for infrastructure, security tools, and licensing — ran platform evaluations and migrations that improved security posture without budget overruns",
     ],
   },
   {
-    role: "VP of Information Technology",
-    company: "Previous Company",
-    period: "2015 — 2020",
-    location: "Washington, D.C.",
+    role: "Service Delivery Manager",
+    company: "AFScott",
+    period: "2022 — 2024",
+    location: "Bedminster, NJ",
     highlights: [
-      "Overhauled legacy systems supporting 500+ users across 12 locations",
-      "Negotiated vendor contracts delivering $1.8M in annual savings",
-      "Led CMMC compliance initiative for DoD contract eligibility",
-      "Championed agile delivery model cutting project delivery time by 40%",
+      "Increased SLA compliance by 40% and overall productivity by 85% through strategic process improvements",
+      "Automated operational workflows using PowerShell and Bash, significantly reducing manual workloads",
+      "Managed Azure AD, Active Directory, Hyper-V, VMware, and Citrix environments",
+      "Implemented Azure MFA, SSO, and Power Automate to enhance security and efficiency",
+      "Led and mentored service teams to hit key performance targets while maintaining strong client relationships",
     ],
   },
   {
-    role: "Director of IT Operations",
-    company: "Prior Organization",
-    period: "2010 — 2015",
-    location: "Northern Virginia",
+    role: "HelpDesk Manager",
+    company: "Tech-Keys",
+    period: "2021 — 2022",
+    location: "Howell, NJ",
     highlights: [
-      "Directed $8M infrastructure refresh program on time and under budget",
-      "Implemented ITSM framework (ServiceNow) across the enterprise",
-      "Reduced mean time to resolution (MTTR) by 60% through process automation",
+      "Managed a team of 10+ support engineers, implementing ITIL practices for alignment and efficiency",
+      "Improved SLA response times by 50% for Tier 1 and 30% across other support tiers",
+      "Developed an educational program for interns and engineers to accelerate skill development",
+      "Led weekly goal-tracking meetings and drove continuous workflow improvement",
+    ],
+  },
+  {
+    role: "Systems Engineer",
+    company: "Tech-Keys",
+    period: "2016 — 2021",
+    location: "Howell, NJ",
+    highlights: [
+      "Managed and configured Aruba, Dell, and Cisco switches along with SonicWall Firewalls",
+      "Administered Azure AD, Active Directory, and Domain Controller environments",
+      "Deployed and maintained Hyper-V, VMware, and Azure cloud services including MFA and SSO",
+      "Leveraged PowerShell for automation and system management across the environment",
     ],
   },
 ];
 ---
 
-<Layout>
+<Layout title="Roger Anderson — Director of IT" description="IT Operations & Service Delivery Leader — NY Metro Area">
   <!-- ── NAV BAR ── -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <span class="text-navy font-semibold tracking-wide text-sm uppercase" style="color:#1a1a2e">Roger Anderson</span>
+      <span class="font-semibold tracking-wide text-sm uppercase" style="color:#1a1a2e">Roger Anderson</span>
       <div class="hidden sm:flex items-center gap-8 text-sm font-medium text-gray-500">
-        <a href="#about" class="hover:text-navy transition-colors" style="--hover:#1a1a2e">About</a>
+        <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
         <a href="#timeline" class="hover:text-gray-900 transition-colors">Career</a>
         <a href="#skills" class="hover:text-gray-900 transition-colors">Skills</a>
         <a
-          href="mailto:randerson@jaydien.com"
+          href="mailto:roger@yeaitis.com"
           class="px-4 py-2 rounded text-white text-sm font-medium transition-opacity hover:opacity-90"
           style="background:#1a1a2e"
         >
@@ -92,18 +107,18 @@ const timeline = [
     <div class="max-w-6xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
       <!-- Text -->
       <div>
-        <p class="text-sm font-medium uppercase tracking-widest mb-4" style="color:#1a1a2e">Executive IT Leader</p>
+        <p class="text-sm font-medium uppercase tracking-widest mb-4" style="color:#1a1a2e">Director of IT · NY Metro Area</p>
         <h1 class="serif text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
           Roger<br />Anderson
         </h1>
-        <p class="text-lg text-gray-500 font-light mb-2 tracking-wide">CIO &nbsp;·&nbsp; CTO &nbsp;·&nbsp; VP of IT</p>
+        <p class="text-lg text-gray-500 font-light mb-2 tracking-wide">IT Operations &nbsp;·&nbsp; Service Delivery &nbsp;·&nbsp; Cloud Infrastructure</p>
 
         <div class="w-12 h-0.5 my-8" style="background:#1a1a2e"></div>
 
         <p class="text-lg text-gray-700 leading-relaxed max-w-md">
-          Senior technology executive with 15+ years driving digital transformation,
-          building high-performing IT organizations, and aligning technology strategy
-          with business outcomes — from the boardroom to the cloud.
+          IT operations leader with 10+ years of progressive experience building high-performing teams,
+          automating service delivery, and driving measurable outcomes — from hands-on infrastructure
+          to managing cross-functional teams across managed services environments.
         </p>
 
         <div class="mt-10 flex items-center gap-4 flex-wrap">
@@ -115,7 +130,7 @@ const timeline = [
             View Career History
           </a>
           <a
-            href="https://www.linkedin.com/in/rogerander/"
+            href="https://linkedin.com/in/rokis"
             target="_blank"
             rel="noopener"
             class="px-6 py-3 rounded text-sm font-medium border border-gray-300 text-gray-700 hover:border-gray-400 transition-colors"
@@ -125,13 +140,13 @@ const timeline = [
         </div>
       </div>
 
-      <!-- Stats / Quick Wins -->
+      <!-- Stats -->
       <div class="grid grid-cols-2 gap-6">
         {[
-          { stat: "15+", label: "Years of Executive IT Leadership" },
-          { stat: "$10M+", label: "IT Budgets Managed" },
-          { stat: "40+", label: "Person Teams Built & Led" },
-          { stat: "3x", label: "Compliance Frameworks Implemented" },
+          { stat: "10+", label: "Years of IT Leadership Experience" },
+          { stat: "85%", label: "Productivity Increase Driven at AFScott" },
+          { stat: "3.5×", label: "Technician Utilization Growth at Jaydien" },
+          { stat: "50%", label: "SLA Improvement Achieved Across Teams" },
         ].map(({ stat, label }) => (
           <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
             <p class="text-3xl font-bold mb-2" style="color:#1a1a2e; font-family:'Playfair Display',serif">{stat}</p>
@@ -151,7 +166,7 @@ const timeline = [
       </div>
 
       <div class="space-y-10">
-        {timeline.map((role, i) => (
+        {timeline.map((role) => (
           <div class="group relative grid lg:grid-cols-[220px_1fr] gap-6 lg:gap-12 items-start">
             <!-- Period -->
             <div class="lg:text-right lg:pt-1">
@@ -160,16 +175,12 @@ const timeline = [
             </div>
 
             <!-- Content card -->
-            <div class="relative pl-6 border-l-2 border-gray-100 group-hover:border-l-2 transition-all"
-                 style="border-left-color:#e2e8f0">
-              <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gray-300 group-hover:bg-navy transition-colors"
-                   style=""></div>
+            <div class="relative pl-6 border-l-2 border-gray-100">
+              <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-gray-300"></div>
               <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm group-hover:shadow-md transition-shadow">
-                <div class="flex items-start justify-between gap-4 mb-4">
-                  <div>
-                    <h3 class="text-xl font-bold text-gray-900">{role.role}</h3>
-                    <p class="text-sm font-medium mt-0.5" style="color:#1a1a2e">{role.company}</p>
-                  </div>
+                <div class="mb-4">
+                  <h3 class="text-xl font-bold text-gray-900">{role.role}</h3>
+                  <p class="text-sm font-medium mt-0.5" style="color:#1a1a2e">{role.company}</p>
                 </div>
                 <ul class="space-y-2">
                   {role.highlights.map((h) => (
@@ -214,16 +225,35 @@ const timeline = [
           </div>
         ))}
       </div>
+
+      <!-- Languages & Education strip -->
+      <div class="mt-12 grid sm:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-semibold text-sm uppercase tracking-wider mb-4" style="color:#1a1a2e">Languages</h3>
+          <div class="flex gap-3">
+            {["English", "Portuguese", "Spanish"].map((lang) => (
+              <span class="px-3 py-1 rounded-full text-sm border border-gray-200 text-gray-600">{lang}</span>
+            ))}
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+          <h3 class="font-semibold text-sm uppercase tracking-wider mb-4" style="color:#1a1a2e">Education</h3>
+          <p class="text-sm text-gray-700 font-medium">B.S. Information Technology <span class="text-gray-400 font-normal">— In Progress</span></p>
+          <p class="text-xs text-gray-400 mt-0.5">Western Governors University</p>
+          <p class="text-sm text-gray-700 font-medium mt-3">IT &amp; Network Administration</p>
+          <p class="text-xs text-gray-400 mt-0.5">Brookdale Community College</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer class="py-12 border-t border-gray-100">
     <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-gray-400">Roger Anderson &mdash; IT Executive</p>
+      <p class="text-sm text-gray-400">Roger Anderson &mdash; Director of IT</p>
       <div class="flex items-center gap-6 text-sm text-gray-400">
-        <a href="mailto:randerson@jaydien.com" class="hover:text-gray-700 transition-colors">randerson@jaydien.com</a>
-        <a href="https://linkedin.com" target="_blank" class="hover:text-gray-700 transition-colors">LinkedIn ↗</a>
+        <a href="mailto:roger@yeaitis.com" class="hover:text-gray-700 transition-colors">roger@yeaitis.com</a>
+        <a href="https://linkedin.com/in/rokis" target="_blank" class="hover:text-gray-700 transition-colors">LinkedIn ↗</a>
         <a href="https://github.com/rokkiiss" target="_blank" class="hover:text-gray-700 transition-colors">GitHub ↗</a>
       </div>
     </div>
