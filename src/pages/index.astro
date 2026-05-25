@@ -114,12 +114,17 @@ const skills = [
     </div>
   </nav>
 
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(to right,#6366f1,#38bdf8);z-index:100;width:0%;transition:width 0.1s;"></div>
+
   <!-- HERO -->
   <section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 1.5rem 4rem;position:relative;overflow:hidden;">
+    <!-- Particle canvas -->
+    <canvas id="particle-canvas"></canvas>
     <!-- Background glow -->
-    <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none;z-index:1;"></div>
 
-    <div style="max-width:1100px;margin:0 auto;width:100%;">
+    <div style="max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;">
       <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">Director of IT · NY Metro Area</p>
 
       <h1 style="font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:1.05;margin-bottom:1.5rem;">
@@ -127,21 +132,18 @@ const skills = [
         <span class="gradient-text">Anderson</span>
       </h1>
 
-      <p style="font-size:1.25rem;color:#8b949e;font-weight:300;max-width:600px;line-height:1.7;margin-bottom:3rem;">
-        From fixing computers at a PC shop to running IT operations for a managed services firm —
-        this is a decade of growth, hard-won expertise, and building teams that deliver.
-      </p>
+      <p id="hero-sub" class="typewriter" style="font-size:1.25rem;color:#8b949e;font-weight:300;max-width:600px;line-height:1.7;margin-bottom:3rem;min-height:5rem;"></p>
 
       <!-- Stats row -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;max-width:700px;margin-bottom:3.5rem;">
         {[
-          { stat: "10+", label: "Years in IT" },
-          { stat: "85%", label: "Productivity lift at AFScott" },
-          { stat: "3.5×", label: "Utilization growth at Jaydien" },
-          { stat: "50%", label: "SLA improvement at Tech-Keys" },
-        ].map(({ stat, label }) => (
-          <div class="card" style="padding:1.25rem;text-align:center;">
-            <div class="stat-number">{stat}</div>
+          { stat: "10", suffix: "+", label: "Years in IT" },
+          { stat: "85", suffix: "%", label: "Productivity lift at AFScott" },
+          { stat: "3.5", suffix: "×", label: "Utilization growth at Jaydien" },
+          { stat: "50", suffix: "%", label: "SLA improvement at Tech-Keys" },
+        ].map(({ stat, suffix, label }) => (
+          <div class="card stat-card" style="padding:1.25rem;text-align:center;">
+            <div class="stat-number" data-count={stat} data-suffix={suffix}>0{suffix}</div>
             <div style="color:#8b949e;font-size:0.75rem;margin-top:0.25rem;line-height:1.4;">{label}</div>
           </div>
         ))}
@@ -176,8 +178,8 @@ const skills = [
         <div style="position:absolute;left:5px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#6366f1,#30363d);"></div>
 
         <div style="display:flex;flex-direction:column;gap:5rem;">
-          {chapters.map((ch) => (
-            <div style="display:grid;grid-template-columns:20px 1fr;gap:2rem;position:relative;">
+          {chapters.map((ch, i) => (
+            <div data-reveal style={`display:grid;grid-template-columns:20px 1fr;gap:2rem;position:relative;transition-delay:${i * 0.05}s;`}>
               <!-- Dot -->
               <div style={`width:12px;height:12px;border-radius:50%;background:${ch.color};box-shadow:0 0 16px ${ch.color};flex-shrink:0;margin-top:0.4rem;`}></div>
 
@@ -200,8 +202,7 @@ const skills = [
                   </div>
                 </div>
 
-                <p style="color:#8b949e;font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;border-left:2px solid;padding-left:1rem;"
-                   style={`border-color:${ch.color};`}>
+                <p style={`color:#8b949e;font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;border-left:2px solid ${ch.color};padding-left:1rem;`}>
                   {ch.summary}
                 </p>
 
@@ -276,3 +277,159 @@ const skills = [
   </footer>
 
 </Layout>
+
+<script>
+// ── 1. SCROLL PROGRESS BAR ──────────────────────────────────────
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  if (bar) bar.style.width = pct + '%';
+}, { passive: true });
+
+// ── 2. SCROLL REVEAL ────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+// ── 3. COUNTING STATS ───────────────────────────────────────────
+function animateCount(el: HTMLElement) {
+  const target = parseFloat(el.dataset.count || '0');
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = target % 1 !== 0;
+  const duration = 1800;
+  const start = performance.now();
+
+  const tick = (now: number) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    const value = eased * target;
+    el.textContent = (isDecimal ? value.toFixed(1) : Math.floor(value)) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll<HTMLElement>('.stat-number[data-count]').forEach(animateCount);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-card').forEach(card => statObserver.observe(card));
+
+// ── 4. TYPEWRITER ───────────────────────────────────────────────
+const heroSub = document.getElementById('hero-sub');
+const heroText = "From fixing computers at a PC shop to running IT operations for a managed services firm — this is a decade of growth, hard-won expertise, and building teams that deliver.";
+
+function typewriter(el: HTMLElement, text: string, speed = 28) {
+  let i = 0;
+  el.textContent = '';
+  const type = () => {
+    if (i < text.length) {
+      el.textContent += text[i++];
+      setTimeout(type, speed);
+    } else {
+      el.classList.add('done');
+    }
+  };
+  setTimeout(type, 600);
+}
+
+if (heroSub) typewriter(heroSub, heroText);
+
+// ── 5. PARTICLE BACKGROUND ──────────────────────────────────────
+const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+const ctx = canvas?.getContext('2d');
+
+if (canvas && ctx) {
+  const section = canvas.parentElement!;
+
+  function resize() {
+    canvas.width = section.offsetWidth;
+    canvas.height = section.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  const PARTICLE_COUNT = 80;
+  const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    alpha: Math.random() * 0.5 + 0.1,
+  }));
+
+  let mouse = { x: -9999, y: -9999 };
+  section.addEventListener('mousemove', (e: MouseEvent) => {
+    const rect = section.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  }, { passive: true });
+
+  function draw() {
+    ctx!.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const p of particles) {
+      // Mouse repulsion
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 100) {
+        p.vx += (dx / dist) * 0.15;
+        p.vy += (dy / dist) * 0.15;
+      }
+
+      // Speed limit
+      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (speed > 1.2) { p.vx *= 0.95; p.vy *= 0.95; }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap edges
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      // Draw particle
+      ctx!.beginPath();
+      ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx!.fillStyle = `rgba(99,102,241,${p.alpha})`;
+      ctx!.fill();
+    }
+
+    // Draw connecting lines between nearby particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx!.beginPath();
+          ctx!.moveTo(particles[i].x, particles[i].y);
+          ctx!.lineTo(particles[j].x, particles[j].y);
+          ctx!.strokeStyle = `rgba(99,102,241,${0.15 * (1 - dist / 120)})`;
+          ctx!.lineWidth = 0.5;
+          ctx!.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+</script>
