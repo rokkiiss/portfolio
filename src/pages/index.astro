@@ -1,13 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const metrics = [
-  { num: "20",  unit: "+", label: "Years in IT",        context: "From hardware bench to executive reporting." },
-  { num: "85",  unit: "%", label: "Productivity lift",  context: "Team output at AFScott, post-overhaul." },
-  { num: "3.5", unit: "×", label: "Utilization growth", context: "Technicians at Jaydien: 20% → 70%." },
-  { num: "50",  unit: "%", label: "SLA improvement",    context: "Tier 1 response times, Tech-Keys." },
-];
-
 const chapters = [
   {
     id: "ch-01",
@@ -20,8 +13,10 @@ const chapters = [
       "Grew technician utilization from 20% to 70% through workflow redesign and automation",
       "Run end-to-end IT ops for a managed services firm serving regulated industries",
       "Manage the full Microsoft stack: Entra ID, Intune, Autopilot, M365, Exchange, SharePoint, Teams",
+      "Oversaw cybersecurity, compliance, and risk mitigation — implementing CMMC L1 and L2 aligned with NIST 800-171",
+      "Established business continuity and disaster recovery strategies across regulated environments",
+      "Served as strategic technology advisor to executive leadership and client stakeholders",
       "Oversee network infrastructure across distributed offices: Meraki, VPN, and everything in between",
-      "Take projects from initial scoping all the way through go-live",
       "Mentor the team, own the metrics, and build the technology roadmap",
       "Deliver executive-level reporting on system health, risk, and investment priorities",
     ],
@@ -53,7 +48,7 @@ const chapters = [
       "Started as a Level 1 technician and worked up from the ground floor",
       "Managed and configured Aruba, Dell, Cisco switches and SonicWall firewalls",
       "Deployed and maintained Hyper-V, VMware, and Azure cloud environments",
-      "Promoted to HelpDesk Manager, leading a team of 10+ support engineers",
+      "Promoted to HelpDesk Manager, leading a team of 10+ support engineers across multiple countries",
       "Improved SLA response times by 50% for Tier 1 and 30% across all other tiers",
       "Implemented ITIL practices that brought structure and accountability to the team",
       "Built an educational program for interns and engineers to accelerate growth",
@@ -103,34 +98,63 @@ const chapters = [
   },
 ];
 
-const skillBars = [
-  { name: "Microsoft 365 & Entra ID",       pct: 95 },
-  { name: "Azure AD & Cloud Services",       pct: 90 },
-  { name: "Team Leadership & Mentorship",    pct: 92 },
-  { name: "ITIL & Service Management",       pct: 90 },
-  { name: "PowerShell & Bash Automation",    pct: 88 },
-  { name: "Vendor & Contract Management",    pct: 88 },
-  { name: "Network Infrastructure",          pct: 85 },
-  { name: "Hyper-V & VMware",               pct: 82 },
+let _barIdx = 0;
+const skillDomains = [
+  {
+    name: "Leadership & Strategy",
+    skills: [
+      { name: "Executive Leadership & Org Transformation", pct: 95 },
+      { name: "Technology Strategy & IT Roadmap Development", pct: 93 },
+      { name: "Digital Transformation & Business Modernization", pct: 90 },
+      { name: "Operational Excellence & Performance Accountability", pct: 92 },
+      { name: "Team Development & Talent Growth", pct: 93 },
+      { name: "Vendor Strategy & Technology Investment", pct: 88 },
+    ].map(s => ({ ...s, idx: _barIdx++ })),
+  },
+  {
+    name: "Security & Compliance",
+    skills: [
+      { name: "Cybersecurity Governance & Risk Mitigation", pct: 88 },
+      { name: "CMMC L1/L2 & NIST 800-171 Implementation", pct: 85 },
+      { name: "Disaster Recovery & Business Continuity", pct: 85 },
+    ].map(s => ({ ...s, idx: _barIdx++ })),
+  },
+  {
+    name: "Infrastructure & Cloud",
+    skills: [
+      { name: "Microsoft 365, Entra ID, Intune & Autopilot", pct: 95 },
+      { name: "Cloud & PaaS Architectures", pct: 88 },
+      { name: "Network Infrastructure (Meraki, Cisco, SonicWall)", pct: 85 },
+      { name: "Virtualization: Hyper-V, VMware, ProxMox", pct: 82 },
+    ].map(s => ({ ...s, idx: _barIdx++ })),
+  },
+  {
+    name: "Automation & Engineering",
+    skills: [
+      { name: "PowerShell & Bash Automation", pct: 90 },
+      { name: "Power Automate & Workflow Design", pct: 85 },
+      { name: "Identity & Access Management (MFA, SSO, AAD)", pct: 90 },
+    ].map(s => ({ ...s, idx: _barIdx++ })),
+  },
 ];
 
-const skillTags = [
-  "Leadership", "Risk Mitigation", "Security & Compliance", "Vendor Management",
-  "Project Management", "Client Relations", "Performance Metrics", "IT Automation",
-  "Meraki Networks", "SonicWall", "Citrix", "Power Automate",
-  "Microsoft Intune", "Autopilot", "Active Directory", "Azure MFA",
+const toolTags = [
+  "Microsoft Intune", "Autopilot", "Entra ID", "Azure AD", "Active Directory",
+  "Meraki", "SonicWall", "Aruba", "Cisco", "Hyper-V", "VMware", "ProxMox",
+  "Power Automate", "PowerShell", "Bash", "Azure MFA", "SSO", "Citrix",
+  "SharePoint", "Teams", "Exchange", "M365", "ITIL", "CMMC",
 ];
 
 const chapterIds = chapters.map(c => c.id);
 ---
 
-<Layout title="Roger Anderson — Director of IT" description="IT Operations & Service Delivery Leader, NY Metro Area">
+<Layout title="Roger Anderson — Director of Operations & Technology" description="Director of Operations & Technology, NY Metro Area">
 
   <!-- NAV -->
   <header class="nav" id="site-nav">
     <div class="nav-inner">
       <a href="#top" class="nav-brand">
-        <b>roger.anderson</b><span>/</span>director-of-it
+        <b>roger.anderson</b><span>/</span>operations-technology
       </a>
       <nav class="nav-links">
         <a href="#story">story</a>
@@ -149,7 +173,7 @@ const chapterIds = chapters.map(c => c.id);
     <div class="wrap hero-inner">
       <div class="hero-meta">
         <span class="live">Available · Open to conversations</span>
-        <span>Director of IT</span>
+        <span>Director of Operations & Technology</span>
         <span>NY Metro Area</span>
       </div>
       <h1 class="hero-name">
@@ -157,8 +181,9 @@ const chapterIds = chapters.map(c => c.id);
         <span class="last">Anders<em>o</em>n</span>
       </h1>
       <p class="hero-tagline">
-        <strong>IT operations leader</strong> who turns underperforming teams into accountable ones.
-        Regulated industries, distributed offices, the full Microsoft stack.
+        <strong>Technology strategist and operations leader.</strong> I build accountable teams,
+        drive digital transformation, and turn infrastructure into business outcomes
+        across regulated industries and distributed organizations.
       </p>
       <div class="hero-cta-row">
         <a class="btn btn-primary" href="#story">Read the story <span class="arrow">↓</span></a>
@@ -168,15 +193,64 @@ const chapterIds = chapters.map(c => c.id);
 
     <div class="wrap">
       <div class="metrics">
-        {metrics.map((m, i) => (
-          <div class="metric-item">
-            <div class="metric-num">
-              <span class="metric-val" data-count={m.num} data-delay={i * 120}>0</span><span class="unit">{m.unit}</span>
-            </div>
-            <div class="metric-label">{m.label}</div>
-            <div class="metric-context">{m.context}</div>
+
+        <div class="metric-item">
+          <div class="metric-num">
+            <span class="metric-val" data-count="20" data-delay="0">0</span><span class="unit">+</span>
           </div>
-        ))}
+          <div class="metric-label">Years in IT</div>
+          <div class="metric-context">From hardware bench to executive strategy.</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-trend">
+            <span class="trend-from">20%</span>
+            <span class="trend-sep">→</span>
+            <span class="trend-to"><span class="metric-val" data-count="70" data-delay="120">0</span>%</span>
+          </div>
+          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
+            <polyline class="spark-line" points="0,26 20,23 40,18 60,11 80,5 100,1"/>
+          </svg>
+          <div class="metric-label">Utilization Growth</div>
+          <div class="metric-context">Technicians at Jaydien, rebuilt from near zero.</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-num">
+            <span class="metric-val" data-count="50" data-delay="240">0</span><span class="unit">%</span>
+          </div>
+          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
+            <polyline class="spark-line" points="0,26 20,22 40,17 60,12 80,6 100,2"/>
+          </svg>
+          <div class="metric-label">Faster SLA Resolution</div>
+          <div class="metric-context">Tier 1 response times at Tech-Keys.</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-num">
+            <span class="metric-val" data-count="85" data-delay="360">0</span><span class="unit">%</span>
+          </div>
+          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
+            <polyline class="spark-line" points="0,26 20,24 40,19 60,13 80,6 100,1"/>
+          </svg>
+          <div class="metric-label">Productivity Lift</div>
+          <div class="metric-context">Team output at AFScott, post-overhaul.</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-badge">L1 + L2</div>
+          <div class="metric-label">CMMC Implemented</div>
+          <div class="metric-context">NIST 800-171 across regulated client environments.</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-num">
+            <span class="metric-val" data-count="10" data-delay="600">0</span><span class="unit">+</span>
+          </div>
+          <div class="metric-label">Engineers Led</div>
+          <div class="metric-context">Across distributed locations and multiple countries.</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -236,58 +310,54 @@ const chapterIds = chapters.map(c => c.id);
     <div class="wrap">
       <div class="reveal">
         <div class="eyebrow">Capabilities</div>
-        <h2 class="section-title">Skills &amp; <em>expertise.</em></h2>
+        <h2 class="section-title">Where I <em>operate.</em></h2>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-col reveal">
-          <h3>Core expertise, by depth</h3>
-          <div class="skill-list">
-            {skillBars.map((s, i) => (
-              <div class="skill-row">
-                <div class="skill-row-head">
-                  <span class="skill-name">{s.name}</span>
-                  <span class="skill-pct"><span class="skill-pct-num" data-pct={s.pct} data-delay={i * 80}>0</span>%</span>
+      <div class="domains-grid">
+        {skillDomains.map((domain) => (
+          <div class="domain reveal">
+            <div class="domain-header">
+              <h3 class="domain-name">{domain.name}</h3>
+            </div>
+            <div class="skill-list">
+              {domain.skills.map((s) => (
+                <div class="skill-row">
+                  <div class="skill-row-head">
+                    <span class="skill-name">{s.name}</span>
+                    <span class="skill-pct"><span class="skill-pct-num" data-pct={s.pct} data-delay={s.idx * 55}>0</span>%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-bar-fill" data-pct={s.pct} data-delay={s.idx * 55}></div>
+                  </div>
                 </div>
-                <div class="skill-bar">
-                  <div class="skill-bar-fill" data-pct={s.pct} data-delay={i * 80}></div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        ))}
+      </div>
+
+      <div class="tools-row reveal">
+        <div class="domain-header">
+          <h3 class="domain-name">Tools & Platforms</h3>
         </div>
-
-        <div class="skill-col reveal">
-          <h3>Adjacent strengths</h3>
-          <div class="tags">
-            {skillTags.map((t) => (
-              <span class="tag">{t}</span>
-            ))}
-          </div>
-
-          <div class="lead-with">
-            <h3>What I lead with</h3>
-            <ul class="lead-list">
-              <li>
-                <div class="lead-title">Outcomes over activity</div>
-                <div class="lead-sub">SLA, utilization, productivity. Not just ticket counts.</div>
-              </li>
-              <li>
-                <div class="lead-title">Automation as leverage</div>
-                <div class="lead-sub">PowerShell, Bash, Power Automate. Automate the repetitive so people can focus on what matters.</div>
-              </li>
-              <li>
-                <div class="lead-title">Calm in escalation</div>
-                <div class="lead-sub">Regulated industries, distributed offices, executive eyes.</div>
-              </li>
-              <li>
-                <div class="lead-title">Mentorship compounds</div>
-                <div class="lead-sub">Built programs at Tech-Keys; coaching teams at every stop since.</div>
-              </li>
-            </ul>
-          </div>
+        <div class="tags">
+          {toolTags.map((t) => (
+            <span class="tag">{t}</span>
+          ))}
         </div>
       </div>
+
+      <div class="languages-row reveal">
+        <div class="domain-header">
+          <h3 class="domain-name">Languages</h3>
+        </div>
+        <div class="lang-list">
+          <span class="lang-tag">English</span>
+          <span class="lang-tag">Portuguese</span>
+          <span class="lang-tag">Spanish</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -329,7 +399,7 @@ const chapterIds = chapters.map(c => c.id);
 
     <footer>
       <div class="wrap footer-inner">
-        <div>© 2025 Roger Anderson · Director of IT</div>
+        <div>© 2025 Roger Anderson · Director of Operations & Technology</div>
         <div class="footer-links">
           <a href="#top">↑ Top</a>
           <a href="#story">Story</a>
@@ -362,30 +432,21 @@ const chapterIds = chapters.map(c => c.id);
   }
   .nav-brand {
     font-family: var(--mono); font-size: 12px; letter-spacing: .02em;
-    color: var(--fg-2);
-    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--fg-2); display: inline-flex; align-items: center; gap: 8px;
   }
   .nav-brand::before {
     content: ""; width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent); box-shadow: 0 0 12px var(--accent);
   }
   .nav-brand b { color: var(--fg); font-weight: 500; }
-  .nav-links {
-    display: flex; gap: 4px; align-items: center;
-    font-family: var(--mono); font-size: 12px;
-  }
-  .nav-links a {
-    padding: 8px 12px; border-radius: 8px; color: var(--fg-2);
-    transition: color .2s, background .2s;
-  }
+  .nav-links { display: flex; gap: 4px; align-items: center; font-family: var(--mono); font-size: 12px; }
+  .nav-links a { padding: 8px 12px; border-radius: 8px; color: var(--fg-2); transition: color .2s, background .2s; }
   .nav-links a:hover { color: var(--fg); background: var(--bg-2); }
   .nav-links a.active { color: var(--accent); }
   .nav-cta {
-    font-family: var(--mono); font-size: 12px;
-    padding: 8px 12px; border: 1px solid var(--line-strong);
-    border-radius: 8px; color: var(--fg);
-    display: inline-flex; align-items: center; gap: 6px;
-    transition: border-color .2s, background .2s;
+    font-family: var(--mono); font-size: 12px; padding: 8px 12px;
+    border: 1px solid var(--line-strong); border-radius: 8px; color: var(--fg);
+    display: inline-flex; align-items: center; gap: 6px; transition: border-color .2s, background .2s;
   }
   .nav-cta:hover { border-color: var(--accent); background: var(--accent-soft); }
 
@@ -397,74 +458,37 @@ const chapterIds = chapters.map(c => c.id);
   }
   .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
   .section-title {
-    font-family: var(--display);
-    font-size: clamp(40px, 6vw, 72px);
-    line-height: 1.02; letter-spacing: -.02em; font-weight: 500;
-    margin: 16px 0 0; color: var(--fg);
+    font-family: var(--display); font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02; letter-spacing: -.02em; font-weight: 500; margin: 16px 0 0; color: var(--fg);
   }
-  .section-title em {
-    font-family: var(--serif); font-style: italic;
-    font-weight: 400; color: var(--accent); letter-spacing: -.01em;
-  }
-
+  .section-title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -.01em; }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
-
   section { padding-top: var(--pad-sec); padding-bottom: var(--pad-sec); }
 
   /* ── Hero ── */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column;
-    padding-top: 96px; padding-bottom: 0; position: relative; overflow: hidden;
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; padding-top: 96px; padding-bottom: 0; position: relative; overflow: hidden; }
   .hero-grid {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 80px 80px; background-position: -1px -1px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 100%);
     pointer-events: none;
   }
-  .hero-inner {
-    flex: 1; display: flex; flex-direction: column; justify-content: center;
-    position: relative; padding: 80px 0 60px;
-  }
-  .hero-meta {
-    display: flex; flex-wrap: wrap; gap: 12px 24px;
-    font-family: var(--mono); font-size: 12px; color: var(--fg-2); margin-bottom: 32px;
-  }
+  .hero-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 80px 0 60px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 12px 24px; font-family: var(--mono); font-size: 12px; color: var(--fg-2); margin-bottom: 32px; }
   .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
   .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 1px; background: var(--fg-3); }
   .hero-meta .live::before { background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
-
-  .hero-name {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(56px, 11vw, 168px);
-    line-height: .92; letter-spacing: -.04em; margin: 0; color: var(--fg);
-  }
+  .hero-name { font-family: var(--display); font-weight: 500; font-size: clamp(56px, 11vw, 168px); line-height: .92; letter-spacing: -.04em; margin: 0; color: var(--fg); }
   .hero-name .first, .hero-name .last { display: block; }
-  .hero-name .last em {
-    font-family: var(--serif); font-style: italic;
-    color: var(--accent); font-weight: 400; letter-spacing: -.02em;
-  }
-  .hero-tagline {
-    margin: 40px 0 0; max-width: 640px;
-    font-family: var(--body); font-size: clamp(16px, 1.4vw, 19px);
-    line-height: 1.55; color: var(--fg-2); font-weight: 300;
-  }
+  .hero-name .last em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; letter-spacing: -.02em; }
+  .hero-tagline { margin: 40px 0 0; max-width: 640px; font-family: var(--body); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--fg-2); font-weight: 300; }
   .hero-tagline strong { color: var(--fg); font-weight: 500; }
   .hero-cta-row { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
-
-  .btn {
-    font-family: var(--mono); font-size: 13px;
-    padding: 14px 20px; border-radius: 10px;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: transform .2s, background .2s, border-color .2s, color .2s, box-shadow .2s;
-    cursor: pointer;
-  }
+  .btn { font-family: var(--mono); font-size: 13px; padding: 14px 20px; border-radius: 10px; display: inline-flex; align-items: center; gap: 10px; transition: transform .2s, background .2s, border-color .2s, color .2s, box-shadow .2s; cursor: pointer; }
   .btn-primary { background: var(--accent); color: #0a0d12; border: 1px solid var(--accent); font-weight: 500; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px var(--accent); }
   .btn-ghost { border: 1px solid var(--line-strong); background: transparent; color: var(--fg); }
@@ -472,166 +496,102 @@ const chapterIds = chapters.map(c => c.id);
   .btn .arrow { display: inline-block; transition: transform .25s ease; }
   .btn:hover .arrow { transform: translateX(4px); }
 
+  /* ── Metrics ── */
   .metrics {
     border-top: 1px solid var(--line); padding: 32px 0 40px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px;
   }
-  @media (max-width: 900px) { .metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
-  .metric-item { display: flex; flex-direction: column; gap: 8px; }
+  @media (max-width: 900px) { .metrics { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+  @media (max-width: 500px) { .metrics { grid-template-columns: 1fr; } }
+  .metric-item { display: flex; flex-direction: column; gap: 6px; }
   .metric-num {
     font-family: var(--display); font-weight: 500;
-    font-size: clamp(36px, 4.4vw, 64px);
-    line-height: 1; letter-spacing: -.03em; color: var(--fg);
-    font-variant-numeric: tabular-nums;
+    font-size: clamp(36px, 4vw, 60px); line-height: 1; letter-spacing: -.03em;
+    color: var(--fg); font-variant-numeric: tabular-nums;
     display: flex; align-items: baseline; gap: 4px;
   }
   .metric-num .unit { color: var(--accent); font-size: .5em; font-family: var(--mono); font-weight: 400; }
-  .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
+  .metric-trend {
+    display: flex; align-items: baseline; gap: 8px;
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(28px, 3.2vw, 52px); line-height: 1; letter-spacing: -.03em;
+  }
+  .trend-from { color: var(--fg-3); font-size: .55em; text-decoration: line-through; text-decoration-color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .trend-sep { color: var(--accent); font-size: .5em; font-family: var(--mono); font-weight: 400; }
+  .trend-to { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .metric-badge {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(32px, 3.6vw, 56px); line-height: 1; letter-spacing: -.03em;
+    color: var(--accent);
+  }
+  .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 2px; }
   .metric-context { font-family: var(--body); font-size: 13px; color: var(--fg-2); line-height: 1.45; }
+  .sparkline { display: block; width: 72px; height: 22px; margin: 6px 0 2px; }
+  .spark-line { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
 
   /* ── Timeline ── */
   .story { padding-top: var(--pad-sec); padding-bottom: var(--pad-sec); }
-  .timeline-head {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    flex-wrap: wrap; gap: 32px; padding-bottom: 80px;
-  }
+  .timeline-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 32px; padding-bottom: 80px; }
   .timeline-head p { max-width: 420px; color: var(--fg-2); margin: 24px 0 0; font-size: 16px; line-height: 1.55; }
   .timeline { display: grid; grid-template-columns: 280px 1fr; gap: 64px; position: relative; }
   @media (max-width: 1000px) { .timeline { grid-template-columns: 1fr; gap: 24px; } }
-
-  .rail {
-    position: sticky; top: 120px; align-self: start; height: max-content;
-    display: flex; flex-direction: column; gap: 0;
-    border-left: 1px solid var(--line); padding-left: 0;
-  }
-  .rail-item {
-    position: relative; padding: 14px 0 14px 24px;
-    border-left: 2px solid transparent; margin-left: -1px;
-    font-family: var(--mono); font-size: 12px; color: var(--fg-3);
-    cursor: pointer; transition: color .25s, border-color .25s;
-    display: flex; flex-direction: column; gap: 3px;
-  }
+  .rail { position: sticky; top: 120px; align-self: start; height: max-content; display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--line); }
+  .rail-item { position: relative; padding: 14px 0 14px 24px; border-left: 2px solid transparent; margin-left: -1px; font-family: var(--mono); font-size: 12px; color: var(--fg-3); cursor: pointer; transition: color .25s, border-color .25s; display: flex; flex-direction: column; gap: 3px; }
   .rail-item:hover { color: var(--fg-2); }
   .rail-item .num { font-size: 10px; letter-spacing: .12em; opacity: .6; }
   .rail-item .place { font-size: 13px; }
   .rail-item.active { color: var(--accent); border-left-color: var(--accent); }
   .rail-item.active .num { opacity: 1; }
   @media (max-width: 1000px) { .rail { display: none; } }
-
   .chapters { display: flex; flex-direction: column; gap: clamp(80px, 10vw, 140px); }
   .chapter { position: relative; scroll-margin-top: 100px; }
   .chapter-head { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 40px; }
-  .chapter-numeral {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(80px, 11vw, 160px); line-height: .85; letter-spacing: -.04em;
-    color: transparent; -webkit-text-stroke: 1px var(--fg-3);
-    flex-shrink: 0; font-variant-numeric: tabular-nums;
-  }
+  .chapter-numeral { font-family: var(--display); font-weight: 500; font-size: clamp(80px, 11vw, 160px); line-height: .85; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px var(--fg-3); flex-shrink: 0; font-variant-numeric: tabular-nums; }
   .chapter-meta-wrap { padding-top: 12px; flex: 1; min-width: 0; }
-  .chapter-tag {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
-  }
-  .chapter-title {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -.02em;
-    margin: 0 0 16px; color: var(--fg);
-  }
-  .chapter-where {
-    font-family: var(--mono); font-size: 13px; color: var(--fg-2);
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 10px; border-radius: 999px;
-    border: 1px solid var(--line-strong); background: var(--bg-2);
-  }
+  .chapter-tag { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .chapter-title { font-family: var(--display); font-weight: 500; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 16px; color: var(--fg); }
+  .chapter-where { font-family: var(--mono); font-size: 13px; color: var(--fg-2); display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--bg-2); }
   .chapter-where .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
   .chapter-body { padding-left: clamp(0px, 8vw, 120px); }
-  @media (max-width: 700px) {
-    .chapter-head { flex-direction: column; gap: 8px; }
-    .chapter-body { padding-left: 0; }
-  }
-  .chapter-lede {
-    font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; color: var(--fg);
-    font-weight: 300; margin: 0 0 32px; max-width: 60ch; font-family: var(--body);
-  }
+  @media (max-width: 700px) { .chapter-head { flex-direction: column; gap: 8px; } .chapter-body { padding-left: 0; } }
+  .chapter-lede { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; color: var(--fg); font-weight: 300; margin: 0 0 32px; max-width: 60ch; font-family: var(--body); }
   .achievements { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 70ch; }
-  .achievements li {
-    display: grid; grid-template-columns: 28px 1fr; gap: 4px;
-    color: var(--fg-2); font-size: 15px; line-height: 1.5; padding: 2px 0;
-  }
-  .achievements li::before {
-    content: "▸"; font-family: var(--mono); color: var(--accent);
-    font-size: 12px; line-height: 1.65;
-  }
+  .achievements li { display: grid; grid-template-columns: 28px 1fr; gap: 4px; color: var(--fg-2); font-size: 15px; line-height: 1.5; padding: 2px 0; }
+  .achievements li::before { content: "▸"; font-family: var(--mono); color: var(--accent); font-size: 12px; line-height: 1.65; }
 
   /* ── Skills ── */
   .skills { background: var(--bg-2); }
-  .skills-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 6vw, 96px); margin-top: 80px;
-  }
-  @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; gap: 48px; } }
-  .skill-col h3 {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
-    text-transform: uppercase; color: var(--fg-3);
-    margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
-  }
-  .skill-list { display: flex; flex-direction: column; gap: 22px; }
+  .domains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 64px; margin-top: 72px; }
+  @media (max-width: 900px) { .domains-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .domain {}
+  .domain-header { margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .domain-name { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; font-weight: 400; }
+  .skill-list { display: flex; flex-direction: column; gap: 18px; }
   .skill-row { display: flex; flex-direction: column; gap: 8px; }
   .skill-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-  .skill-name { font-family: var(--body); font-size: 15px; color: var(--fg); font-weight: 400; }
-  .skill-pct { font-family: var(--mono); font-size: 12px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .skill-name { font-family: var(--body); font-size: 14px; color: var(--fg); font-weight: 400; }
+  .skill-pct { font-family: var(--mono); font-size: 12px; color: var(--fg-3); font-variant-numeric: tabular-nums; flex-shrink: 0; }
   .skill-bar { position: relative; height: 3px; border-radius: 999px; background: var(--line); overflow: hidden; }
-  .skill-bar-fill {
-    position: absolute; inset: 0 auto 0 0; width: 0;
-    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
-    border-radius: inherit; transition: width 1.4s cubic-bezier(.2,.7,.2,1);
-  }
-  .skill-bar-fill::after {
-    content: ""; position: absolute; right: 0; top: -3px; width: 8px; height: 9px;
-    background: var(--accent); border-radius: 2px;
-    box-shadow: 0 0 12px var(--accent); opacity: .9;
-  }
-  .tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag {
-    font-family: var(--mono); font-size: 12px;
-    padding: 8px 12px; border-radius: 999px;
-    border: 1px solid var(--line-strong); color: var(--fg-2); background: var(--bg-3);
-    transition: color .2s, border-color .2s, background .2s;
-  }
+  .skill-bar-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%); border-radius: inherit; transition: width 1.4s cubic-bezier(.2,.7,.2,1); }
+  .skill-bar-fill::after { content: ""; position: absolute; right: 0; top: -3px; width: 8px; height: 9px; background: var(--accent); border-radius: 2px; box-shadow: 0 0 12px var(--accent); opacity: .9; }
+  .tools-row { margin-top: 56px; }
+  .tools-row .tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--mono); font-size: 12px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--fg-2); background: var(--bg-3); transition: color .2s, border-color .2s, background .2s; }
   .tag:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
-
-  .lead-with { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
-  .lead-with h3 { margin-bottom: 16px; }
-  .lead-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-  .lead-list li { display: grid; gap: 4px; }
-  .lead-title { font-family: var(--display); font-size: 18px; font-weight: 500; letter-spacing: -.01em; color: var(--fg); }
-  .lead-sub { color: var(--fg-2); font-size: 14px; line-height: 1.5; }
+  .languages-row { margin-top: 40px; }
+  .lang-list { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .lang-tag { font-family: var(--mono); font-size: 13px; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); background: var(--accent-soft); letter-spacing: .04em; }
 
   /* ── Contact ── */
   .contact { border-top: 1px solid var(--line); background: var(--bg); }
   .contact-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start; }
   @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
-  .contact-cta {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(40px, 6vw, 88px); line-height: 1.0; letter-spacing: -.03em;
-    margin: 24px 0 32px; color: var(--fg);
-  }
+  .contact-cta { font-family: var(--display); font-weight: 500; font-size: clamp(40px, 6vw, 88px); line-height: 1.0; letter-spacing: -.03em; margin: 24px 0 32px; color: var(--fg); }
   .contact-cta em { font-family: var(--serif); font-style: italic; color: var(--accent); }
   .contact-blurb { color: var(--fg-2); max-width: 48ch; font-size: 17px; line-height: 1.5; }
-  .contact-card {
-    border: 1px solid var(--line-strong); border-radius: 16px;
-    padding: 28px; background: var(--bg-2);
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .contact-card .label {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--fg-3); margin-bottom: 6px;
-  }
-  .contact-line {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 0; border-top: 1px solid var(--line);
-    transition: padding-left .2s;
-  }
+  .contact-card { border: 1px solid var(--line-strong); border-radius: 16px; padding: 28px; background: var(--bg-2); display: flex; flex-direction: column; gap: 4px; }
+  .contact-card .label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 6px; }
+  .contact-line { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-top: 1px solid var(--line); transition: padding-left .2s; }
   .contact-line:hover { padding-left: 4px; }
   .contact-line:first-of-type { border-top: 0; padding-top: 12px; }
   .contact-line .what { font-family: var(--mono); font-size: 12px; color: var(--fg-3); letter-spacing: .04em; }
@@ -640,10 +600,7 @@ const chapterIds = chapters.map(c => c.id);
   .contact-line:hover .val .arrow { transform: translate(2px, -2px); }
 
   /* ── Footer ── */
-  footer {
-    border-top: 1px solid var(--line); padding: 32px 0;
-    font-family: var(--mono); font-size: 12px; color: var(--fg-3);
-  }
+  footer { border-top: 1px solid var(--line); padding: 32px 0; font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
   .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .footer-links { display: flex; gap: 20px; }
   .footer-links a:hover { color: var(--accent); }
@@ -657,14 +614,10 @@ const revealIO = new IntersectionObserver((entries) => {
     if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
-
 revealEls.forEach(el => {
   const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom > 0) {
-    el.classList.add('in');
-  } else {
-    revealIO.observe(el);
-  }
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('in'); }
+  else { revealIO.observe(el); }
 });
 
 // ── Count-up helper ─────────────────────────────────────────────────────────
@@ -682,7 +635,32 @@ function countUp(el, target, duration, decimals, delay) {
   }, delay);
 }
 
-// ── Hero metric count-up ────────────────────────────────────────────────────
+// ── Sparkline draw-in ───────────────────────────────────────────────────────
+function initSparklines() {
+  document.querySelectorAll('.spark-line').forEach(line => {
+    try {
+      const len = line.getTotalLength();
+      line.style.strokeDasharray = len;
+      line.style.strokeDashoffset = len;
+    } catch(_) {
+      line.style.strokeDasharray = 115;
+      line.style.strokeDashoffset = 115;
+    }
+  });
+}
+
+function fireSparks() {
+  document.querySelectorAll('.spark-line').forEach((line, i) => {
+    setTimeout(() => {
+      line.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';
+      line.style.strokeDashoffset = '0';
+    }, 200 + i * 80);
+  });
+}
+
+initSparklines();
+
+// ── Hero metric count-up + sparks ───────────────────────────────────────────
 const metricVals = document.querySelectorAll('.metric-val');
 let metricsFired = false;
 
@@ -696,14 +674,14 @@ function fireMetrics() {
     const delay = parseInt(el.dataset.delay) || 0;
     countUp(el, target, 1400, decimals, delay);
   });
+  fireSparks();
 }
 
 const heroEl = document.getElementById('top');
 if (heroEl) {
   const r = heroEl.getBoundingClientRect();
-  if (r.top < window.innerHeight) {
-    fireMetrics();
-  } else {
+  if (r.top < window.innerHeight) { fireMetrics(); }
+  else {
     const heroIO = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) { fireMetrics(); heroIO.disconnect(); }
     }, { threshold: 0.05 });
@@ -735,7 +713,7 @@ const skillsSection = document.getElementById('skills');
 if (skillsSection) {
   const skillsIO = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) { fireSkills(); skillsIO.disconnect(); }
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05 });
   skillsIO.observe(skillsSection);
 }
 
@@ -772,9 +750,7 @@ function updateNav() {
 
 function updateRail() {
   const active = getActive(chapterIds);
-  railItems.forEach(a => {
-    a.classList.toggle('active', a.dataset.chapter === active);
-  });
+  railItems.forEach(a => { a.classList.toggle('active', a.dataset.chapter === active); });
 }
 
 window.addEventListener('scroll', () => { updateNav(); updateRail(); }, { passive: true });
