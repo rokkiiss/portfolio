@@ -208,8 +208,9 @@ const chapterIds = chapters.map(c => c.id);
             <span class="trend-sep">→</span>
             <span class="trend-to"><span class="metric-val" data-count="70" data-delay="120">0</span>%</span>
           </div>
-          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
-            <polyline class="spark-line" points="0,26 20,23 40,18 60,11 80,5 100,1"/>
+          <svg viewBox="0 0 54 30" class="trend-arrow" aria-hidden="true">
+            <path class="arrow-curve" d="M3,26 C12,22 24,10 46,3"/>
+            <path class="arrow-tip" d="M38,1 L47,4 L45,13"/>
           </svg>
           <div class="metric-label">Utilization Growth</div>
           <div class="metric-context">Technicians at Jaydien, rebuilt from near zero.</div>
@@ -219,8 +220,9 @@ const chapterIds = chapters.map(c => c.id);
           <div class="metric-num">
             <span class="metric-val" data-count="50" data-delay="240">0</span><span class="unit">%</span>
           </div>
-          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
-            <polyline class="spark-line" points="0,26 20,22 40,17 60,12 80,6 100,2"/>
+          <svg viewBox="0 0 54 30" class="trend-arrow" aria-hidden="true">
+            <path class="arrow-curve" d="M3,26 C12,22 24,10 46,3"/>
+            <path class="arrow-tip" d="M38,1 L47,4 L45,13"/>
           </svg>
           <div class="metric-label">Faster SLA Resolution</div>
           <div class="metric-context">Tier 1 response times at Tech-Keys.</div>
@@ -230,14 +232,18 @@ const chapterIds = chapters.map(c => c.id);
           <div class="metric-num">
             <span class="metric-val" data-count="85" data-delay="360">0</span><span class="unit">%</span>
           </div>
-          <svg viewBox="0 0 100 28" class="sparkline" aria-hidden="true" preserveAspectRatio="none">
-            <polyline class="spark-line" points="0,26 20,24 40,19 60,13 80,6 100,1"/>
+          <svg viewBox="0 0 54 30" class="trend-arrow" aria-hidden="true">
+            <path class="arrow-curve" d="M3,26 C12,22 24,10 46,3"/>
+            <path class="arrow-tip" d="M38,1 L47,4 L45,13"/>
           </svg>
           <div class="metric-label">Productivity Lift</div>
           <div class="metric-context">Team output at AFScott, post-overhaul.</div>
         </div>
 
-        <div class="metric-item">
+        <div class="metric-item metric-shield">
+          <svg class="shield-wm" viewBox="0 0 80 92" aria-hidden="true">
+            <path d="M40,2 L76,14 L76,50 C76,70 60,84 40,90 C20,84 4,70 4,50 L4,14 Z"/>
+          </svg>
           <div class="metric-badge">L1 + L2</div>
           <div class="metric-label">CMMC Implemented</div>
           <div class="metric-context">NIST 800-171 across regulated client environments.</div>
@@ -526,8 +532,13 @@ const chapterIds = chapters.map(c => c.id);
   }
   .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 2px; }
   .metric-context { font-family: var(--body); font-size: 13px; color: var(--fg-2); line-height: 1.45; }
-  .sparkline { display: block; width: 72px; height: 22px; margin: 6px 0 2px; }
-  .spark-line { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
+  .trend-arrow { display: block; width: 54px; height: 28px; margin: 8px 0 4px; }
+  .arrow-curve { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+  .arrow-tip { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .metric-shield { position: relative; overflow: visible; }
+  .shield-wm { position: absolute; width: 120px; height: 138px; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: .055; pointer-events: none; z-index: 0; }
+  .shield-wm path { fill: var(--accent); }
+  .metric-shield > *:not(.shield-wm) { position: relative; z-index: 1; }
 
   /* ── Timeline ── */
   .story { padding-top: var(--pad-sec); padding-bottom: var(--pad-sec); }
@@ -635,30 +646,36 @@ function countUp(el, target, duration, decimals, delay) {
   }, delay);
 }
 
-// ── Sparkline draw-in ───────────────────────────────────────────────────────
-function initSparklines() {
-  document.querySelectorAll('.spark-line').forEach(line => {
+// ── Trend arrow draw-in ─────────────────────────────────────────────────────
+function initArrows() {
+  document.querySelectorAll('.arrow-curve, .arrow-tip').forEach(path => {
     try {
-      const len = line.getTotalLength();
-      line.style.strokeDasharray = len;
-      line.style.strokeDashoffset = len;
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
     } catch(_) {
-      line.style.strokeDasharray = 115;
-      line.style.strokeDashoffset = 115;
+      path.style.strokeDasharray = 80;
+      path.style.strokeDashoffset = 80;
     }
   });
 }
 
-function fireSparks() {
-  document.querySelectorAll('.spark-line').forEach((line, i) => {
+function fireArrows() {
+  document.querySelectorAll('.arrow-curve').forEach((path, i) => {
     setTimeout(() => {
-      line.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)';
-      line.style.strokeDashoffset = '0';
-    }, 200 + i * 80);
+      path.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1)';
+      path.style.strokeDashoffset = '0';
+    }, 250 + i * 120);
+  });
+  document.querySelectorAll('.arrow-tip').forEach((path, i) => {
+    setTimeout(() => {
+      path.style.transition = 'stroke-dashoffset .5s cubic-bezier(.2,.7,.2,1)';
+      path.style.strokeDashoffset = '0';
+    }, 1400 + i * 120);
   });
 }
 
-initSparklines();
+initArrows();
 
 // ── Hero metric count-up + sparks ───────────────────────────────────────────
 const metricVals = document.querySelectorAll('.metric-val');
@@ -674,7 +691,7 @@ function fireMetrics() {
     const delay = parseInt(el.dataset.delay) || 0;
     countUp(el, target, 1400, decimals, delay);
   });
-  fireSparks();
+  fireArrows();
 }
 
 const heroEl = document.getElementById('top');
