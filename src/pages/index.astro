@@ -1,16 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const metrics = [
+  { num: "20",  unit: "+", label: "Years in IT",        context: "From hardware bench to executive reporting." },
+  { num: "85",  unit: "%", label: "Productivity lift",  context: "Team output at AFScott, post-overhaul." },
+  { num: "3.5", unit: "×", label: "Utilization growth", context: "Technicians at Jaydien: 20% → 70%." },
+  { num: "50",  unit: "%", label: "SLA improvement",    context: "Tier 1 response times, Tech-Keys." },
+];
+
 const chapters = [
   {
+    id: "ch-01",
     num: "01",
-    role: "PC Warehouse",
+    tag: "Age 14 — Early Career",
     title: "It Started With a Burnt Motherboard",
-    period: "Age 14 — 24",
-    location: "NJ",
-    color: "#38bdf8",
-    summary: "At 14, I tried to overclock my computer and fried the Front Side Bus Controller. No money to fix it, no computer for the summer — just a Windows 95 machine to tell my TeamSpeak crew I was MIA. My mom's solution? Go ask for a job at the same shop I'd begged for a diagnosis. Two months later, I was on payroll.",
-    highlights: [
+    where: "PC Warehouse · NJ",
+    lede: "At 14, I tried to overclock my computer and fried the Front Side Bus Controller. No money to fix it, no computer for the summer — just a Windows 95 machine to tell my TeamSpeak crew I was MIA. My mom's solution? Go ask for a job at the same shop I'd begged for a diagnosis. Two months later, I was on payroll.",
+    points: [
       "Landed my first job at 14 by turning a hardware disaster into an opportunity",
       "Spent 10 years learning everything about computers — components, repair, builds, diagnostics",
       "Developed deep hands-on hardware knowledge that most IT professionals never get",
@@ -18,14 +24,13 @@ const chapters = [
     ],
   },
   {
+    id: "ch-02",
     num: "02",
-    role: "The Detour",
+    tag: "The In-Between Years",
     title: "The Jobs That Didn't Make the Resume",
-    period: "The In-Between Years",
-    location: "NJ",
-    color: "#6b7280",
-    summary: "After PC Warehouse, I took two jobs that taught me more about who I wasn't than who I was. One was a networking gig in a basement with four other guys — the overtime was good, the environment was not. I quit. The next one was worse: formal clothes at a manufacturing facility that smelled like oil two seconds into the day. I'd eat lunch alone wondering why I was there, then ask myself the same question on the way home. One day, they made the decision for me. Best thing that ever happened. I packed what I had left and traveled.",
-    highlights: [
+    where: "Various · NJ",
+    lede: "After PC Warehouse, I took two jobs that taught me more about who I wasn't than who I was. One was a networking gig in a basement — the overtime was good, the environment was not. The next was worse. One day, they made the decision for me. Best thing that ever happened.",
+    points: [
       "Learned that a paycheck and a purpose are not the same thing",
       "Discovered the environments we work in shape us as much as the work itself",
       "Getting let go was the push I needed — sometimes the door has to close",
@@ -33,30 +38,29 @@ const chapters = [
     ],
   },
   {
+    id: "ch-03",
     num: "03",
-    role: "Verizon Wireless",
+    tag: "Pre-2016",
     title: "Coming Back to Tech",
-    period: "Pre-2016",
-    location: "NJ",
-    color: "#f59e0b",
-    summary: "After the travel and the reset, Verizon was the bridge back. More details coming — this chapter is being written.",
-    highlights: [
+    where: "Verizon Wireless · NJ",
+    lede: "After the travel and the reset, Verizon was the bridge back. Learned how technology connects to business outcomes and customer experience at scale — and built the communication skills that would carry forward into every leadership role after.",
+    points: [
       "Returned to technology after a personal reset",
       "Gained exposure to enterprise-scale operations and customer experience",
-      "Developed the communication and client-facing skills that would carry forward",
+      "Developed client-facing communication and technical explanation skills",
+      "Understood how IT decisions directly impact business and customers",
     ],
   },
   {
+    id: "ch-04",
     num: "04",
-    role: "Tech-Keys",
+    tag: "2016 — 2022",
     title: "Found My Meaning in IT",
-    period: "2016 — 2022",
-    location: "Howell, NJ",
-    color: "#6366f1",
-    summary: "The place where everything clicked. Grew from Level 1 technician all the way to HelpDesk Manager — and built the leadership skills that define the rest of the story.",
-    highlights: [
+    where: "Tech-Keys · Howell, NJ",
+    lede: "Where everything clicked. Grew from Level 1 technician to HelpDesk Manager — and built the leadership skills that define the rest of the story.",
+    points: [
       "Started as a Level 1 technician — learned from the ground up",
-      "Managed and configured Aruba, Dell, Cisco switches and SonicWall Firewalls",
+      "Managed and configured Aruba, Dell, Cisco switches and SonicWall firewalls",
       "Deployed and maintained Hyper-V, VMware, and Azure cloud environments",
       "Promoted to HelpDesk Manager — led a team of 10+ support engineers",
       "Improved SLA response times by 50% for Tier 1 and 30% across all other tiers",
@@ -65,31 +69,29 @@ const chapters = [
     ],
   },
   {
+    id: "ch-05",
     num: "05",
-    role: "AFScott",
+    tag: "2022 — 2024",
     title: "Putting It All Into Practice",
-    period: "2022 — 2024",
-    location: "Bedminster, NJ",
-    color: "#a78bfa",
-    summary: "Took everything learned at Tech-Keys and applied it at scale. Drove transformational improvements across service delivery and team performance.",
-    highlights: [
+    where: "AFScott · Bedminster, NJ",
+    lede: "Took everything learned at Tech-Keys and applied it at scale. Drove transformational improvements across service delivery and team performance.",
+    points: [
       "Increased SLA compliance by 40% through strategic process improvements",
       "Drove overall team productivity up by 85%",
       "Built automation using PowerShell and Bash that eliminated manual workloads",
       "Managed Azure AD, Active Directory, Hyper-V, VMware, and Citrix environments",
       "Deployed Azure MFA, SSO, and Power Automate to modernize security and workflows",
-      "Managed client relationships and escalations across a complex service delivery model",
+      "Managed client relationships and escalations across a complex service-delivery model",
     ],
   },
   {
+    id: "ch-06",
     num: "06",
-    role: "Jaydien Network Solutions",
+    tag: "June 2024 — Present",
     title: "Zero to Hero — The Culmination",
-    period: "June 2024 — Present",
-    location: "Brick, NJ",
-    color: "#34d399",
-    summary: "This is where every lesson, every late night, every hard conversation, and every solved problem converged. The full stack — operations, leadership, strategy, and execution.",
-    highlights: [
+    where: "Jaydien Network Solutions · Brick, NJ",
+    lede: "Every lesson, every late night, every hard conversation, and every solved problem converged. The full stack — operations, leadership, strategy, and execution.",
+    points: [
       "Grew technician utilization from 20% to 70% through workflow redesign and automation",
       "Own end-to-end IT operations for a managed services environment serving regulated industries",
       "Manage the full Microsoft stack: Entra ID, Intune, Autopilot, M365, Exchange, SharePoint, Teams",
@@ -101,137 +103,129 @@ const chapters = [
   },
 ];
 
-const skills = [
-  { label: "Microsoft 365 & Entra ID", level: 95 },
-  { label: "Azure AD & Cloud Services", level: 90 },
-  { label: "PowerShell & Bash Automation", level: 88 },
-  { label: "Network Infrastructure (Meraki, Cisco, SonicWall)", level: 85 },
-  { label: "ITIL & Service Management", level: 90 },
-  { label: "Hyper-V & VMware", level: 82 },
-  { label: "Vendor & Contract Management", level: 88 },
-  { label: "Team Leadership & Mentorship", level: 92 },
+const skillBars = [
+  { name: "Microsoft 365 & Entra ID",       pct: 95 },
+  { name: "Azure AD & Cloud Services",       pct: 90 },
+  { name: "Team Leadership & Mentorship",    pct: 92 },
+  { name: "ITIL & Service Management",       pct: 90 },
+  { name: "PowerShell & Bash Automation",    pct: 88 },
+  { name: "Vendor & Contract Management",    pct: 88 },
+  { name: "Network Infrastructure",          pct: 85 },
+  { name: "Hyper-V & VMware",               pct: 82 },
 ];
+
+const skillTags = [
+  "Leadership", "Risk Mitigation", "Security & Compliance", "Vendor Management",
+  "Project Management", "Client Relations", "Performance Metrics", "IT Automation",
+  "Meraki Networks", "SonicWall", "Citrix", "Power Automate",
+  "Microsoft Intune", "Autopilot", "Active Directory", "Azure MFA",
+];
+
+const chapterIds = chapters.map(c => c.id);
 ---
 
-<Layout title="Roger Anderson — IT Leader" description="IT Operations & Service Delivery Leader, NY Metro Area">
+<Layout title="Roger Anderson — Director of IT" description="IT Operations & Service Delivery Leader, NY Metro Area">
 
   <!-- NAV -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #30363d;">
-    <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-weight:600;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;color:#e6edf3;">Roger Anderson</span>
-      <div style="display:flex;align-items:center;gap:2rem;">
-        <a href="#story" class="nav-link">Story</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener"
-           style="padding:0.5rem 1.25rem;border-radius:6px;background:#6366f1;color:white;font-size:0.85rem;font-weight:500;text-decoration:none;">
-          LinkedIn ↗
-        </a>
-      </div>
+  <header class="nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-brand">
+        <b>roger.anderson</b><span>/</span>director-of-it
+      </a>
+      <nav class="nav-links">
+        <a href="#story">story</a>
+        <a href="#skills">skills</a>
+        <a href="#contact">contact</a>
+      </nav>
+      <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener" class="nav-cta">
+        LinkedIn <span>↗</span>
+      </a>
     </div>
-  </nav>
-
-  <!-- SCROLL PROGRESS BAR -->
-  <div id="progress-bar" style="position:fixed;top:0;left:0;height:2px;background:linear-gradient(to right,#6366f1,#38bdf8);z-index:100;width:0%;transition:width 0.1s;"></div>
+  </header>
 
   <!-- HERO -->
-  <section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 1.5rem 4rem;position:relative;overflow:hidden;">
-    <!-- Particle canvas -->
-    <canvas id="particle-canvas"></canvas>
-    <!-- Background glow -->
-    <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none;z-index:1;"></div>
-
-    <div style="max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;">
-      <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">Director of IT · NY Metro Area</p>
-
-      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:1.05;margin-bottom:1.5rem;">
-        <span style="color:#e6edf3;">Roger</span><br/>
-        <span class="gradient-text">Anderson</span>
+  <section id="top" class="hero">
+    <div class="hero-grid"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-meta">
+        <span class="live">Available · Open to conversations</span>
+        <span>Director of IT</span>
+        <span>NY Metro Area</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="first">Roger</span>
+        <span class="last">Anders<em>o</em>n</span>
       </h1>
+      <p class="hero-tagline">
+        <strong>IT operations &amp; service-delivery leader</strong> turning under-utilized teams
+        into measurable, accountable engines — across regulated industries, distributed
+        offices, and the full Microsoft stack.
+      </p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="#story">Read the story <span class="arrow">↓</span></a>
+        <a class="btn btn-ghost" href="mailto:roger@yeaitis.com">Get in touch <span class="arrow">→</span></a>
+      </div>
+    </div>
 
-      <p id="hero-sub" class="typewriter" style="font-size:1.25rem;color:#8b949e;font-weight:300;max-width:600px;line-height:1.7;margin-bottom:3rem;min-height:5rem;"></p>
-
-      <!-- Stats row -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;max-width:700px;margin-bottom:3.5rem;">
-        {[
-          { stat: "10", suffix: "+", label: "Years in IT" },
-          { stat: "85", suffix: "%", label: "Productivity lift at AFScott" },
-          { stat: "3.5", suffix: "×", label: "Utilization growth at Jaydien" },
-          { stat: "50", suffix: "%", label: "SLA improvement at Tech-Keys" },
-        ].map(({ stat, suffix, label }) => (
-          <div class="card stat-card" style="padding:1.25rem;text-align:center;">
-            <div class="stat-number" data-count={stat} data-suffix={suffix}>0{suffix}</div>
-            <div style="color:#8b949e;font-size:0.75rem;margin-top:0.25rem;line-height:1.4;">{label}</div>
+    <div class="wrap">
+      <div class="metrics">
+        {metrics.map((m, i) => (
+          <div class="metric-item">
+            <div class="metric-num">
+              <span class="metric-val" data-count={m.num} data-delay={i * 120}>0</span><span class="unit">{m.unit}</span>
+            </div>
+            <div class="metric-label">{m.label}</div>
+            <div class="metric-context">{m.context}</div>
           </div>
         ))}
-      </div>
-
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#story" style="padding:0.75rem 1.75rem;border-radius:8px;background:#6366f1;color:white;font-weight:500;text-decoration:none;font-size:0.95rem;">
-          Read the Story ↓
-        </a>
-        <a href="mailto:roger@yeaitis.com" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;font-size:0.95rem;">
-          Get in Touch
-        </a>
       </div>
     </div>
   </section>
 
   <!-- STORY / TIMELINE -->
-  <section id="story" style="padding:6rem 1.5rem;">
-    <div style="max-width:1100px;margin:0 auto;">
-
-      <div style="margin-bottom:5rem;">
-        <div class="glow-line" style="margin-bottom:2rem;"></div>
-        <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;">The Journey</p>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#e6edf3;">
-          Every stop shaped<br/>what came next.
-        </h2>
+  <section id="story" class="story">
+    <div class="wrap">
+      <div class="timeline-head reveal">
+        <div>
+          <div class="eyebrow">The Journey</div>
+          <h2 class="section-title">Every stop shaped <em>what came next.</em></h2>
+        </div>
+        <p>
+          Twenty years across hardware bench, enterprise scale, managed services,
+          and executive ops — each chapter built the skills the next chapter needed.
+        </p>
       </div>
 
-      <!-- Timeline -->
-      <div style="position:relative;">
-        <!-- Vertical line -->
-        <div style="position:absolute;left:5px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#6366f1,#30363d);"></div>
+      <div class="timeline">
+        <nav class="rail" aria-label="Chapters" id="chapter-rail">
+          {chapters.map((c) => (
+            <a href={`#${c.id}`} class="rail-item" data-chapter={c.id}>
+              <span class="num">CHAPTER {c.num}</span>
+              <span class="place">{c.where.split(" · ")[0]}</span>
+            </a>
+          ))}
+        </nav>
 
-        <div style="display:flex;flex-direction:column;gap:5rem;">
-          {chapters.map((ch, i) => (
-            <div data-reveal style={`display:grid;grid-template-columns:20px 1fr;gap:2rem;position:relative;transition-delay:${i * 0.05}s;`}>
-              <!-- Dot -->
-              <div style={`width:12px;height:12px;border-radius:50%;background:${ch.color};box-shadow:0 0 16px ${ch.color};flex-shrink:0;margin-top:0.4rem;`}></div>
-
-              <!-- Card -->
-              <div class="card" style="padding:2.5rem;position:relative;overflow:hidden;">
-                <!-- Big chapter number watermark -->
-                <div style="position:absolute;right:-0.5rem;top:-1rem;font-family:'Playfair Display',serif;font-size:8rem;font-weight:900;line-height:1;opacity:0.04;color:#ffffff;user-select:none;pointer-events:none;">
-                  {ch.num}
+        <div class="chapters">
+          {chapters.map((c) => (
+            <article id={c.id} class="chapter reveal">
+              <header class="chapter-head">
+                <div class="chapter-numeral">{c.num}</div>
+                <div class="chapter-meta-wrap">
+                  <div class="chapter-tag">Chapter {c.num} · {c.tag}</div>
+                  <h3 class="chapter-title">{c.title}</h3>
+                  <div class="chapter-where"><span class="dot"></span>{c.where}</div>
                 </div>
-
-                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap;">
-                  <div>
-                    <p style={`color:${ch.color};font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;`}>
-                      Chapter {ch.num} · {ch.period}
-                    </p>
-                    <h3 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#e6edf3;margin-bottom:0.25rem;">
-                      {ch.title}
-                    </h3>
-                    <p style="color:#8b949e;font-size:0.9rem;">{ch.role} · {ch.location}</p>
-                  </div>
-                </div>
-
-                <p style={`color:#8b949e;font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;border-left:2px solid ${ch.color};padding-left:1rem;`}>
-                  {ch.summary}
-                </p>
-
-                <ul style="display:flex;flex-direction:column;gap:0.6rem;">
-                  {ch.highlights.map((h) => (
-                    <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.9rem;color:#c9d1d9;">
-                      <span style={`color:${ch.color};margin-top:0.35rem;flex-shrink:0;font-size:0.7rem;`}>▶</span>
-                      {h}
-                    </li>
+              </header>
+              <div class="chapter-body">
+                <p class="chapter-lede">{c.lede}</p>
+                <ul class="achievements">
+                  {c.points.map((p) => (
+                    <li>{p}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -239,213 +233,553 @@ const skills = [
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" style="padding:6rem 1.5rem;background:#0a0d12;">
-    <div style="max-width:1100px;margin:0 auto;">
-      <div class="glow-line" style="margin-bottom:2rem;"></div>
-      <p style="color:#6366f1;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.75rem;">Capabilities</p>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#e6edf3;margin-bottom:3rem;">
-        Skills & Expertise
-      </h2>
-
-      <div style="display:flex;flex-direction:column;gap:1.25rem;max-width:800px;">
-        {skills.map(({ label, level }) => (
-          <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
-              <span style="font-size:0.9rem;color:#c9d1d9;">{label}</span>
-              <span style="font-size:0.85rem;color:#6366f1;font-weight:600;">{level}%</span>
-            </div>
-            <div style="height:4px;background:#21262d;border-radius:4px;overflow:hidden;">
-              <div style={`height:100%;width:${level}%;background:linear-gradient(to right,#6366f1,#38bdf8);border-radius:4px;`}></div>
-            </div>
-          </div>
-        ))}
+  <section id="skills" class="skills">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Capabilities</div>
+        <h2 class="section-title">Skills &amp; <em>expertise.</em></h2>
       </div>
 
-      <!-- Additional skills grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.75rem;margin-top:3rem;">
-        {["Leadership","Risk Mitigation","Security & Compliance","Vendor Management","Project Management","Client Relations","Performance Metrics","IT Automation","Meraki Networks","SonicWall","Citrix","Power Automate"].map((s) => (
-          <div style="padding:0.6rem 1rem;background:#161b22;border:1px solid #30363d;border-radius:6px;font-size:0.85rem;color:#8b949e;text-align:center;">
-            {s}
+      <div class="skills-grid">
+        <div class="skill-col reveal">
+          <h3>Core expertise — depth ratings</h3>
+          <div class="skill-list">
+            {skillBars.map((s, i) => (
+              <div class="skill-row">
+                <div class="skill-row-head">
+                  <span class="skill-name">{s.name}</span>
+                  <span class="skill-pct"><span class="skill-pct-num" data-pct={s.pct} data-delay={i * 80}>0</span>%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar-fill" data-pct={s.pct} data-delay={i * 80}></div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div class="skill-col reveal">
+          <h3>Adjacent strengths</h3>
+          <div class="tags">
+            {skillTags.map((t) => (
+              <span class="tag">{t}</span>
+            ))}
+          </div>
+
+          <div class="lead-with">
+            <h3>What I lead with</h3>
+            <ul class="lead-list">
+              <li>
+                <div class="lead-title">Outcomes over activity</div>
+                <div class="lead-sub">Tracked metrics — SLA, utilization, productivity — not ticket counts.</div>
+              </li>
+              <li>
+                <div class="lead-title">Automation as leverage</div>
+                <div class="lead-sub">PowerShell, Bash, Power Automate — let humans do the human work.</div>
+              </li>
+              <li>
+                <div class="lead-title">Calm in escalation</div>
+                <div class="lead-sub">Regulated industries, distributed offices, executive eyes.</div>
+              </li>
+              <li>
+                <div class="lead-title">Mentorship compounds</div>
+                <div class="lead-sub">Built programs at Tech-Keys; coaching teams at every stop since.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER / CONTACT -->
-  <footer style="padding:4rem 1.5rem;border-top:1px solid #30363d;">
-    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;">
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#e6edf3;">Let's Connect</h2>
-      <p style="color:#8b949e;max-width:400px;">Open to new opportunities, consulting conversations, or just a good IT chat.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-        <a href="mailto:roger@yeaitis.com" style="padding:0.75rem 1.75rem;border-radius:8px;background:#6366f1;color:white;font-weight:500;text-decoration:none;">
-          roger@yeaitis.com
-        </a>
-        <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;">
-          LinkedIn ↗
-        </a>
-        <a href="https://github.com/rokkiiss" target="_blank" rel="noopener" style="padding:0.75rem 1.75rem;border-radius:8px;border:1px solid #30363d;color:#e6edf3;font-weight:500;text-decoration:none;">
-          GitHub ↗
-        </a>
+  <!-- CONTACT + FOOTER -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div class="reveal">
+          <div class="eyebrow">Let's connect</div>
+          <h2 class="contact-cta">
+            Open to new opportunities, consulting conversations, or just a <em>good IT chat.</em>
+          </h2>
+          <p class="contact-blurb">
+            Based in the NY metro area. Best reached by email — usually back within a day.
+          </p>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="label">Direct lines</div>
+          <a href="mailto:roger@yeaitis.com" class="contact-line">
+            <span class="what">email</span>
+            <span class="val">roger@yeaitis.com <span class="arrow">↗</span></span>
+          </a>
+          <a href="https://linkedin.com/in/rokis" target="_blank" rel="noopener" class="contact-line">
+            <span class="what">linkedin</span>
+            <span class="val">/in/rokis <span class="arrow">↗</span></span>
+          </a>
+          <a href="https://github.com/rokkiiss" target="_blank" rel="noopener" class="contact-line">
+            <span class="what">github</span>
+            <span class="val">@rokkiiss <span class="arrow">↗</span></span>
+          </a>
+          <div class="contact-line">
+            <span class="what">location</span>
+            <span class="val">NY Metro Area</span>
+          </div>
+        </div>
       </div>
-      <p style="color:#30363d;font-size:0.8rem;margin-top:1rem;">Roger Anderson · Director of IT · NY Metro Area</p>
     </div>
-  </footer>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <div>© 2025 Roger Anderson · Director of IT</div>
+        <div class="footer-links">
+          <a href="#top">↑ Top</a>
+          <a href="#story">Story</a>
+          <a href="#skills">Skills</a>
+          <a href="mailto:roger@yeaitis.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </section>
 
 </Layout>
 
+<style is:global>
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ── Nav ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: color-mix(in oklab, var(--bg) 70%, transparent);
+    border-bottom: 1px solid var(--line);
+    transition: background .35s ease;
+  }
+  .nav.scrolled { background: color-mix(in oklab, var(--bg) 92%, transparent); }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav-brand {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .02em;
+    color: var(--fg-2);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .nav-brand::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 12px var(--accent);
+  }
+  .nav-brand b { color: var(--fg); font-weight: 500; }
+  .nav-links {
+    display: flex; gap: 4px; align-items: center;
+    font-family: var(--mono); font-size: 12px;
+  }
+  .nav-links a {
+    padding: 8px 12px; border-radius: 8px; color: var(--fg-2);
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: var(--fg); background: var(--bg-2); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-cta {
+    font-family: var(--mono); font-size: 12px;
+    padding: 8px 12px; border: 1px solid var(--line-strong);
+    border-radius: 8px; color: var(--fg);
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-cta:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* ── Shared ── */
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02; letter-spacing: -.02em; font-weight: 500;
+    margin: 16px 0 0; color: var(--fg);
+  }
+  .section-title em {
+    font-family: var(--serif); font-style: italic;
+    font-weight: 400; color: var(--accent); letter-spacing: -.01em;
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  section { padding-top: var(--pad-sec); padding-bottom: var(--pad-sec); }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    padding-top: 96px; padding-bottom: 0; position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px; background-position: -1px -1px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 100%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    position: relative; padding: 80px 0 60px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 12px 24px;
+    font-family: var(--mono); font-size: 12px; color: var(--fg-2); margin-bottom: 32px;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta span::before { content: ""; width: 6px; height: 6px; border-radius: 1px; background: var(--fg-3); }
+  .hero-meta .live::before { background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+  .hero-name {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(56px, 11vw, 168px);
+    line-height: .92; letter-spacing: -.04em; margin: 0; color: var(--fg);
+  }
+  .hero-name .first, .hero-name .last { display: block; }
+  .hero-name .last em {
+    font-family: var(--serif); font-style: italic;
+    color: var(--accent); font-weight: 400; letter-spacing: -.02em;
+  }
+  .hero-tagline {
+    margin: 40px 0 0; max-width: 640px;
+    font-family: var(--body); font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.55; color: var(--fg-2); font-weight: 300;
+  }
+  .hero-tagline strong { color: var(--fg); font-weight: 500; }
+  .hero-cta-row { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn {
+    font-family: var(--mono); font-size: 13px;
+    padding: 14px 20px; border-radius: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform .2s, background .2s, border-color .2s, color .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--accent); color: #0a0d12; border: 1px solid var(--accent); font-weight: 500; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px var(--accent); }
+  .btn-ghost { border: 1px solid var(--line-strong); background: transparent; color: var(--fg); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn .arrow { display: inline-block; transition: transform .25s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .metrics {
+    border-top: 1px solid var(--line); padding: 32px 0 40px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  }
+  @media (max-width: 900px) { .metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+  .metric-item { display: flex; flex-direction: column; gap: 8px; }
+  .metric-num {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 1; letter-spacing: -.03em; color: var(--fg);
+    font-variant-numeric: tabular-nums;
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .metric-num .unit { color: var(--accent); font-size: .5em; font-family: var(--mono); font-weight: 400; }
+  .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
+  .metric-context { font-family: var(--body); font-size: 13px; color: var(--fg-2); line-height: 1.45; }
+
+  /* ── Timeline ── */
+  .story { padding-top: var(--pad-sec); padding-bottom: var(--pad-sec); }
+  .timeline-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 32px; padding-bottom: 80px;
+  }
+  .timeline-head p { max-width: 420px; color: var(--fg-2); margin: 24px 0 0; font-size: 16px; line-height: 1.55; }
+  .timeline { display: grid; grid-template-columns: 280px 1fr; gap: 64px; position: relative; }
+  @media (max-width: 1000px) { .timeline { grid-template-columns: 1fr; gap: 24px; } }
+
+  .rail {
+    position: sticky; top: 120px; align-self: start; height: max-content;
+    display: flex; flex-direction: column; gap: 0;
+    border-left: 1px solid var(--line); padding-left: 0;
+  }
+  .rail-item {
+    position: relative; padding: 14px 0 14px 24px;
+    border-left: 2px solid transparent; margin-left: -1px;
+    font-family: var(--mono); font-size: 12px; color: var(--fg-3);
+    cursor: pointer; transition: color .25s, border-color .25s;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .rail-item:hover { color: var(--fg-2); }
+  .rail-item .num { font-size: 10px; letter-spacing: .12em; opacity: .6; }
+  .rail-item .place { font-size: 13px; }
+  .rail-item.active { color: var(--accent); border-left-color: var(--accent); }
+  .rail-item.active .num { opacity: 1; }
+  @media (max-width: 1000px) { .rail { display: none; } }
+
+  .chapters { display: flex; flex-direction: column; gap: clamp(80px, 10vw, 140px); }
+  .chapter { position: relative; scroll-margin-top: 100px; }
+  .chapter-head { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 40px; }
+  .chapter-numeral {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(80px, 11vw, 160px); line-height: .85; letter-spacing: -.04em;
+    color: transparent; -webkit-text-stroke: 1px var(--fg-3);
+    flex-shrink: 0; font-variant-numeric: tabular-nums;
+  }
+  .chapter-meta-wrap { padding-top: 12px; flex: 1; min-width: 0; }
+  .chapter-tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .chapter-title {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -.02em;
+    margin: 0 0 16px; color: var(--fg);
+  }
+  .chapter-where {
+    font-family: var(--mono); font-size: 13px; color: var(--fg-2);
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 10px; border-radius: 999px;
+    border: 1px solid var(--line-strong); background: var(--bg-2);
+  }
+  .chapter-where .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .chapter-body { padding-left: clamp(0px, 8vw, 120px); }
+  @media (max-width: 700px) {
+    .chapter-head { flex-direction: column; gap: 8px; }
+    .chapter-body { padding-left: 0; }
+  }
+  .chapter-lede {
+    font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; color: var(--fg);
+    font-weight: 300; margin: 0 0 32px; max-width: 60ch; font-family: var(--body);
+  }
+  .achievements { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 70ch; }
+  .achievements li {
+    display: grid; grid-template-columns: 28px 1fr; gap: 4px;
+    color: var(--fg-2); font-size: 15px; line-height: 1.5; padding: 2px 0;
+  }
+  .achievements li::before {
+    content: "▸"; font-family: var(--mono); color: var(--accent);
+    font-size: 12px; line-height: 1.65;
+  }
+
+  /* ── Skills ── */
+  .skills { background: var(--bg-2); }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 96px); margin-top: 80px;
+  }
+  @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .skill-col h3 {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--fg-3);
+    margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .skill-list { display: flex; flex-direction: column; gap: 22px; }
+  .skill-row { display: flex; flex-direction: column; gap: 8px; }
+  .skill-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .skill-name { font-family: var(--body); font-size: 15px; color: var(--fg); font-weight: 400; }
+  .skill-pct { font-family: var(--mono); font-size: 12px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .skill-bar { position: relative; height: 3px; border-radius: 999px; background: var(--line); overflow: hidden; }
+  .skill-bar-fill {
+    position: absolute; inset: 0 auto 0 0; width: 0;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+    border-radius: inherit; transition: width 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .skill-bar-fill::after {
+    content: ""; position: absolute; right: 0; top: -3px; width: 8px; height: 9px;
+    background: var(--accent); border-radius: 2px;
+    box-shadow: 0 0 12px var(--accent); opacity: .9;
+  }
+  .tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-family: var(--mono); font-size: 12px;
+    padding: 8px 12px; border-radius: 999px;
+    border: 1px solid var(--line-strong); color: var(--fg-2); background: var(--bg-3);
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .tag:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+
+  .lead-with { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .lead-with h3 { margin-bottom: 16px; }
+  .lead-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .lead-list li { display: grid; gap: 4px; }
+  .lead-title { font-family: var(--display); font-size: 18px; font-weight: 500; letter-spacing: -.01em; color: var(--fg); }
+  .lead-sub { color: var(--fg-2); font-size: 14px; line-height: 1.5; }
+
+  /* ── Contact ── */
+  .contact { border-top: 1px solid var(--line); background: var(--bg); }
+  .contact-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start; }
+  @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+  .contact-cta {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(40px, 6vw, 88px); line-height: 1.0; letter-spacing: -.03em;
+    margin: 24px 0 32px; color: var(--fg);
+  }
+  .contact-cta em { font-family: var(--serif); font-style: italic; color: var(--accent); }
+  .contact-blurb { color: var(--fg-2); max-width: 48ch; font-size: 17px; line-height: 1.5; }
+  .contact-card {
+    border: 1px solid var(--line-strong); border-radius: 16px;
+    padding: 28px; background: var(--bg-2);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .contact-card .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--fg-3); margin-bottom: 6px;
+  }
+  .contact-line {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0; border-top: 1px solid var(--line);
+    transition: padding-left .2s;
+  }
+  .contact-line:hover { padding-left: 4px; }
+  .contact-line:first-of-type { border-top: 0; padding-top: 12px; }
+  .contact-line .what { font-family: var(--mono); font-size: 12px; color: var(--fg-3); letter-spacing: .04em; }
+  .contact-line .val { font-family: var(--body); font-size: 17px; color: var(--fg); display: inline-flex; gap: 8px; align-items: center; }
+  .contact-line .val .arrow { color: var(--accent); transition: transform .2s; }
+  .contact-line:hover .val .arrow { transform: translate(2px, -2px); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--line); padding: 32px 0;
+    font-family: var(--mono); font-size: 12px; color: var(--fg-3);
+  }
+  .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a:hover { color: var(--accent); }
+</style>
+
 <script>
-// ── 1. SCROLL PROGRESS BAR ──────────────────────────────────────
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  if (bar) bar.style.width = pct + '%';
-}, { passive: true });
-
-// ── 2. SCROLL REVEAL ────────────────────────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      revealObserver.unobserve(entry.target);
-    }
+// ── Scroll reveal ───────────────────────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const revealIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
 
-document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+revealEls.forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) {
+    el.classList.add('in');
+  } else {
+    revealIO.observe(el);
+  }
+});
 
-// ── 3. COUNTING STATS ───────────────────────────────────────────
-function animateCount(el: HTMLElement) {
-  const target = parseFloat(el.dataset.count || '0');
-  const suffix = el.dataset.suffix || '';
-  const isDecimal = target % 1 !== 0;
-  const duration = 1800;
-  const start = performance.now();
-
-  const tick = (now: number) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    const value = eased * target;
-    el.textContent = (isDecimal ? value.toFixed(1) : Math.floor(value)) + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
+// ── Count-up helper ─────────────────────────────────────────────────────────
+function countUp(el, target, duration, decimals, delay) {
+  setTimeout(() => {
+    const start = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const v = target * ease(t);
+      el.textContent = decimals > 0 ? v.toFixed(decimals) : Math.round(v);
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, delay);
 }
 
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll<HTMLElement>('.stat-number[data-count]').forEach(animateCount);
-      statObserver.unobserve(entry.target);
-    }
+// ── Hero metric count-up ────────────────────────────────────────────────────
+const metricVals = document.querySelectorAll('.metric-val');
+let metricsFired = false;
+
+function fireMetrics() {
+  if (metricsFired) return;
+  metricsFired = true;
+  metricVals.forEach(el => {
+    const raw = el.dataset.count;
+    const target = parseFloat(raw);
+    const decimals = raw.includes('.') ? 1 : 0;
+    const delay = parseInt(el.dataset.delay) || 0;
+    countUp(el, target, 1400, decimals, delay);
   });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-card').forEach(card => statObserver.observe(card));
-
-// ── 4. TYPEWRITER ───────────────────────────────────────────────
-const heroSub = document.getElementById('hero-sub');
-const heroText = "From fixing computers at a PC shop to running IT operations for a managed services firm — this is a decade of growth, hard-won expertise, and building teams that deliver.";
-
-function typewriter(el: HTMLElement, text: string, speed = 28) {
-  let i = 0;
-  el.textContent = '';
-  const type = () => {
-    if (i < text.length) {
-      el.textContent += text[i++];
-      setTimeout(type, speed);
-    } else {
-      el.classList.add('done');
-    }
-  };
-  setTimeout(type, 600);
 }
 
-if (heroSub) typewriter(heroSub, heroText);
-
-// ── 5. PARTICLE BACKGROUND ──────────────────────────────────────
-const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
-const ctx = canvas?.getContext('2d');
-
-if (canvas && ctx) {
-  const section = canvas.parentElement!;
-
-  function resize() {
-    canvas.width = section.offsetWidth;
-    canvas.height = section.offsetHeight;
+const heroEl = document.getElementById('top');
+if (heroEl) {
+  const r = heroEl.getBoundingClientRect();
+  if (r.top < window.innerHeight) {
+    fireMetrics();
+  } else {
+    const heroIO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { fireMetrics(); heroIO.disconnect(); }
+    }, { threshold: 0.05 });
+    heroIO.observe(heroEl);
   }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  const PARTICLE_COUNT = 80;
-  const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3,
-    alpha: Math.random() * 0.5 + 0.1,
-  }));
-
-  let mouse = { x: -9999, y: -9999 };
-  section.addEventListener('mousemove', (e: MouseEvent) => {
-    const rect = section.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  }, { passive: true });
-
-  function draw() {
-    ctx!.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (const p of particles) {
-      // Mouse repulsion
-      const dx = p.x - mouse.x;
-      const dy = p.y - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100) {
-        p.vx += (dx / dist) * 0.15;
-        p.vy += (dy / dist) * 0.15;
-      }
-
-      // Speed limit
-      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-      if (speed > 1.2) { p.vx *= 0.95; p.vy *= 0.95; }
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      // Wrap edges
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-
-      // Draw particle
-      ctx!.beginPath();
-      ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx!.fillStyle = `rgba(99,102,241,${p.alpha})`;
-      ctx!.fill();
-    }
-
-    // Draw connecting lines between nearby particles
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx!.beginPath();
-          ctx!.moveTo(particles[i].x, particles[i].y);
-          ctx!.lineTo(particles[j].x, particles[j].y);
-          ctx!.strokeStyle = `rgba(99,102,241,${0.15 * (1 - dist / 120)})`;
-          ctx!.lineWidth = 0.5;
-          ctx!.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(draw);
-  }
-  draw();
 }
+
+// ── Skill bars + count-up ───────────────────────────────────────────────────
+const skillFills = document.querySelectorAll('.skill-bar-fill');
+const skillPctNums = document.querySelectorAll('.skill-pct-num');
+let skillsFired = false;
+
+function fireSkills() {
+  if (skillsFired) return;
+  skillsFired = true;
+  skillFills.forEach(bar => {
+    const pct = bar.dataset.pct;
+    const delay = parseInt(bar.dataset.delay) || 0;
+    setTimeout(() => { bar.style.width = pct + '%'; }, delay);
+  });
+  skillPctNums.forEach(el => {
+    const target = parseInt(el.dataset.pct);
+    const delay = parseInt(el.dataset.delay) || 0;
+    countUp(el, target, 1300, 0, delay);
+  });
+}
+
+const skillsSection = document.getElementById('skills');
+if (skillsSection) {
+  const skillsIO = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { fireSkills(); skillsIO.disconnect(); }
+  }, { threshold: 0.1 });
+  skillsIO.observe(skillsSection);
+}
+
+// ── Active section (nav + chapter rail) ────────────────────────────────────
+const navSections = ['top', 'story', 'skills', 'contact'];
+const chapterIds = ['ch-01', 'ch-02', 'ch-03', 'ch-04', 'ch-05', 'ch-06'];
+const navLinks = document.querySelectorAll('.nav-links a');
+const railItems = document.querySelectorAll('.rail-item');
+const siteNav = document.getElementById('site-nav');
+
+function getActive(ids) {
+  const mid = window.innerHeight * 0.35;
+  let best = ids[0]; let bestDist = Infinity;
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const r = el.getBoundingClientRect();
+    if (r.top - mid <= 0) {
+      const d = Math.abs(r.top - mid);
+      if (d < bestDist) { bestDist = d; best = id; }
+    }
+  }
+  return best;
+}
+
+function updateNav() {
+  const active = getActive(navSections);
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href').slice(1);
+    a.classList.toggle('active', href === active);
+  });
+  if (siteNav) siteNav.classList.toggle('scrolled', window.scrollY > 80);
+}
+
+function updateRail() {
+  const active = getActive(chapterIds);
+  railItems.forEach(a => {
+    a.classList.toggle('active', a.dataset.chapter === active);
+  });
+}
+
+window.addEventListener('scroll', () => { updateNav(); updateRail(); }, { passive: true });
+window.addEventListener('resize', () => { updateNav(); updateRail(); });
+updateNav();
+updateRail();
 </script>
